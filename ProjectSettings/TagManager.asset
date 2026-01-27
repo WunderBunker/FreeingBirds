@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - Map
+  - Path
+  - PolyB
+  - PolyA
+  - SpawnManager
+  - MeanTube
+  - HomeButton
+  - HomeMenu
+  - MainCanvas
+  - PlayerShell
+  - BirdSpawn
+  - RainCam
+  - Undefined
+  - BigCage
+  - DebugCanvas
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Camera
+  - Water
+  - UI
+  - Player
+  - Items
+  - DistortionEffectLayer
+  - PolyA
+  - PolyB
+  - ParticleContenant
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: BackGround
+    uniqueID: 3988538495
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Tubes
+    uniqueID: 4268730223
+    locked: 0
+  - name: Map
+    uniqueID: 3475532109
+    locked: 0
+  - name: Player
+    uniqueID: 165387923
+    locked: 0
+  - name: UI
+    uniqueID: 3652980695
+    locked: 0
+  m_RenderingLayers:
+  - Default

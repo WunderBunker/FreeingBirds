@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fed9570456257b49b813a2551337056, type: 3}
+  m_Name: Bird3Override
+  m_EditorClassIdentifier: Assembly-CSharp::BirdOverride
+  IsDefault: 0
+  NbNodesPerChunk: 0
+  MaxDistanceBtwNodes: 30
+  MinDistanceBtwNodes: 30
+  MaxAngleBtwNodes: 20
+  MinAngleBtwNodes: 20
+  DistanceToWalls: 24
+  NbPointParVecteur: 0
+  LargeurMurs: 120
+  TubeDistanceLimitFromWall: 12
+  TubeSpacing: 0
+  ValuesForTube: 1e0000004b000000
+  ValuesForMovingTube: 0a00000032000000
+  ValuesForFlyingTube: 0700000014000000
+  ValuesForFlyingTubeSharpnel: 050000000a000000
+  ValuesForDollarBill: 1e00000005000000
+  HorizonAvancementForMaxSpawn: 2000
+  PlayerSizeCoeff: 0
+  DecalagePlayerCam: 10
+  CamDistanceForMaxSpeed: 5
+  CamOrthoSize: 18

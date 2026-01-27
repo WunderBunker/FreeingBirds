@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Texts_es
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: d2fa2e82970ffc64ab4cb044c19929bf, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 8320177942528
+    m_Localized: "No se pudieron cargar los datos de la tabla de clasificaci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8325760561152
+    m_Localized: No se pudieron cargar los datos del jugador
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8326268071936
+    m_Localized: "Tu puntuaci\xF3n no es visible porque tu perfil de Google parece
+      ser privado\nPerfil -> Configuraci\xF3n -> Confidencialidad"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28958657622016
+    m_Localized: Cambiar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 150470668288
+    m_Localized: 'Tu rango es: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 348462788608
+    m_Localized: Volumen maestro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 398911877120
+    m_Localized: "Volumen de m\xFAsica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 467174174720
+    m_Localized: Volumen de efectos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 74134335488
+    m_Localized: "Categor\xEDa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22741528576
+    m_Localized: Presione para comenzar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13061102673866752
+    m_Localized: "Espa\xF1ol"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13413876800434176
+    m_Localized: Cargando datos del jugador
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

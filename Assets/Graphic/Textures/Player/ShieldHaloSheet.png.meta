@@ -1,0 +1,1785 @@
+fileFormatVersion: 2
+guid: 6ba0c86737250fa48b6e3b9c4ae1522f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1008526665644402093
+    second: ShieldHaloSheet_0
+  - first:
+      213: -2045902537192397731
+    second: ShieldHaloSheet_1
+  - first:
+      213: 1389616791992373664
+    second: ShieldHaloSheet_2
+  - first:
+      213: -8508473527910265172
+    second: ShieldHaloSheet_3
+  - first:
+      213: -8439070824752852954
+    second: ShieldHaloSheet_4
+  - first:
+      213: -432364733400764494
+    second: ShieldHaloSheet_5
+  - first:
+      213: 1749324390431980318
+    second: ShieldHaloSheet_6
+  - first:
+      213: 6732088533733187954
+    second: ShieldHaloSheet_7
+  - first:
+      213: -1781626815400170112
+    second: ShieldHaloSheet_8
+  - first:
+      213: -5727255855612267860
+    second: ShieldHaloSheet_9
+  - first:
+      213: 3708572512108906877
+    second: ShieldHaloSheet_10
+  - first:
+      213: 2407250446932469513
+    second: ShieldHaloSheet_11
+  - first:
+      213: -4735470816758926834
+    second: ShieldHaloSheet_12
+  - first:
+      213: -6725148156495684251
+    second: ShieldHaloSheet_13
+  - first:
+      213: -3892975277890532099
+    second: ShieldHaloSheet_14
+  - first:
+      213: -7026656234442861962
+    second: ShieldHaloSheet_15
+  - first:
+      213: 3220769438098441591
+    second: ShieldHaloSheet_16
+  - first:
+      213: -1327870637754095061
+    second: ShieldHaloSheet_17
+  - first:
+      213: -7062383784781492621
+    second: ShieldHaloSheet_18
+  - first:
+      213: -3896213897199617956
+    second: ShieldHaloSheet_19
+  - first:
+      213: -1993595811108631630
+    second: ShieldHaloSheet_20
+  - first:
+      213: -7570681672928161329
+    second: ShieldHaloSheet_21
+  - first:
+      213: -3645514222910055554
+    second: ShieldHaloSheet_22
+  - first:
+      213: 2824173549475696578
+    second: ShieldHaloSheet_23
+  - first:
+      213: 3778080299184144012
+    second: ShieldHaloSheet_24
+  - first:
+      213: -5266152334591970654
+    second: ShieldHaloSheet_25
+  - first:
+      213: -8541328773563914094
+    second: ShieldHaloSheet_26
+  - first:
+      213: 5770002144381872487
+    second: ShieldHaloSheet_27
+  - first:
+      213: 6255246275487188947
+    second: ShieldHaloSheet_28
+  - first:
+      213: -5664508928994725600
+    second: ShieldHaloSheet_29
+  - first:
+      213: -8499362009361151837
+    second: ShieldHaloSheet_30
+  - first:
+      213: 4885897706435191058
+    second: ShieldHaloSheet_31
+  - first:
+      213: 5551031643024453207
+    second: ShieldHaloSheet_32
+  - first:
+      213: 2759582715305192428
+    second: ShieldHaloSheet_33
+  - first:
+      213: -6536654302740201865
+    second: ShieldHaloSheet_34
+  - first:
+      213: -6187878066571809373
+    second: ShieldHaloSheet_35
+  - first:
+      213: 3337522915848426161
+    second: ShieldHaloSheet_36
+  - first:
+      213: -7223368316696047651
+    second: ShieldHaloSheet_37
+  - first:
+      213: 2105920537531161583
+    second: ShieldHaloSheet_38
+  - first:
+      213: -3245305033622422817
+    second: ShieldHaloSheet_39
+  - first:
+      213: 7675577118856631484
+    second: ShieldHaloSheet_40
+  - first:
+      213: 5658920614080363041
+    second: ShieldHaloSheet_41
+  - first:
+      213: -7793658354458357262
+    second: ShieldHaloSheet_42
+  - first:
+      213: 1557119814025991185
+    second: ShieldHaloSheet_43
+  - first:
+      213: -5542610298278202129
+    second: ShieldHaloSheet_44
+  - first:
+      213: 7856546228824238905
+    second: ShieldHaloSheet_45
+  - first:
+      213: -7740839764523787247
+    second: ShieldHaloSheet_46
+  - first:
+      213: 6276227501207758171
+    second: ShieldHaloSheet_47
+  - first:
+      213: 3409541753007335102
+    second: ShieldHaloSheet_48
+  - first:
+      213: 3505771247297383770
+    second: ShieldHaloSheet_49
+  - first:
+      213: -2141873153415945016
+    second: ShieldHaloSheet_50
+  - first:
+      213: 1194266012675084894
+    second: ShieldHaloSheet_51
+  - first:
+      213: -9079162515240314116
+    second: ShieldHaloSheet_52
+  - first:
+      213: -8433039370286278367
+    second: ShieldHaloSheet_53
+  - first:
+      213: 4322725627602173545
+    second: ShieldHaloSheet_54
+  - first:
+      213: 4061687025689028826
+    second: ShieldHaloSheet_55
+  - first:
+      213: 5296641982931068389
+    second: ShieldHaloSheet_56
+  - first:
+      213: 3680344423224913030
+    second: ShieldHaloSheet_57
+  - first:
+      213: -1771567395473320527
+    second: ShieldHaloSheet_58
+  - first:
+      213: -5724342514035827975
+    second: ShieldHaloSheet_59
+  - first:
+      213: 2975922284797394989
+    second: ShieldHaloSheet_60
+  - first:
+      213: 9099678649659542712
+    second: ShieldHaloSheet_61
+  - first:
+      213: -6312418909173085353
+    second: ShieldHaloSheet_62
+  - first:
+      213: -4513049733415933877
+    second: ShieldHaloSheet_63
+  - first:
+      213: -6940365075964143338
+    second: ShieldHaloSheet_64
+  - first:
+      213: -2658248175921513993
+    second: ShieldHaloSheet_65
+  - first:
+      213: -7258471624496444789
+    second: ShieldHaloSheet_66
+  - first:
+      213: -177981503828925685
+    second: ShieldHaloSheet_67
+  - first:
+      213: -7443699161070137157
+    second: ShieldHaloSheet_68
+  - first:
+      213: -7685755346063043698
+    second: ShieldHaloSheet_69
+  - first:
+      213: 1629318411812726567
+    second: ShieldHaloSheet_70
+  - first:
+      213: 8355383954584927807
+    second: ShieldHaloSheet_71
+  - first:
+      213: 3475214542069718786
+    second: ShieldHaloSheet_72
+  - first:
+      213: 3248023794545250262
+    second: ShieldHaloSheet_73
+  - first:
+      213: -8454046247024769404
+    second: ShieldHaloSheet_74
+  - first:
+      213: -9093272445313762455
+    second: ShieldHaloSheet_75
+  - first:
+      213: 3583786552301167456
+    second: ShieldHaloSheet_76
+  - first:
+      213: 4092996617692485793
+    second: ShieldHaloSheet_77
+  - first:
+      213: 755254876032709674
+    second: ShieldHaloSheet_78
+  - first:
+      213: -685730193441928628
+    second: ShieldHaloSheet_79
+  - first:
+      213: 3673830901259948245
+    second: ShieldHaloSheet_80
+  - first:
+      213: 7942666706109219155
+    second: ShieldHaloSheet_81
+  - first:
+      213: 3417185643870347851
+    second: ShieldHaloSheet_82
+  - first:
+      213: 1716949498149863348
+    second: ShieldHaloSheet_83
+  - first:
+      213: 6087811069958084216
+    second: ShieldHaloSheet_84
+  - first:
+      213: -3336837828830113464
+    second: ShieldHaloSheet_85
+  - first:
+      213: -6896583490216468056
+    second: ShieldHaloSheet_86
+  - first:
+      213: -1912587428959364885
+    second: ShieldHaloSheet_87
+  - first:
+      213: 2832896659995555143
+    second: ShieldHaloSheet_88
+  - first:
+      213: 5658602047543521244
+    second: ShieldHaloSheet_89
+  - first:
+      213: -4576504521249702803
+    second: ShieldHaloSheet_90
+  - first:
+      213: 8629712055572132779
+    second: ShieldHaloSheet_91
+  - first:
+      213: 8998826663584756247
+    second: ShieldHaloSheet_92
+  - first:
+      213: -4088618204500183926
+    second: ShieldHaloSheet_93
+  - first:
+      213: -64896662002660451
+    second: ShieldHaloSheet_94
+  - first:
+      213: -2011764836658698946
+    second: ShieldHaloSheet_95
+  - first:
+      213: 2125376860014680993
+    second: ShieldHaloSheet_96
+  - first:
+      213: 3629645305431481358
+    second: ShieldHaloSheet_97
+  - first:
+      213: 7188301444680198463
+    second: ShieldHaloSheet_98
+  - first:
+      213: 2258131017289042293
+    second: ShieldHaloSheet_99
+  - first:
+      213: 3777028587303164819
+    second: ShieldHaloSheet_100
+  - first:
+      213: 6090668918251608018
+    second: ShieldHaloSheet_101
+  - first:
+      213: 8883944616677569356
+    second: ShieldHaloSheet_102
+  - first:
+      213: -8641858012039335134
+    second: ShieldHaloSheet_103
+  - first:
+      213: 7825114956891911851
+    second: ShieldHaloSheet_104
+  - first:
+      213: -4149726692700232107
+    second: ShieldHaloSheet_105
+  - first:
+      213: -6927168699872573689
+    second: ShieldHaloSheet_106
+  - first:
+      213: 1753036250372028802
+    second: ShieldHaloSheet_107
+  - first:
+      213: -2836160662937766802
+    second: ShieldHaloSheet_108
+  - first:
+      213: -5630784583624744551
+    second: ShieldHaloSheet_109
+  - first:
+      213: -482665939247832785
+    second: ShieldHaloSheet_110
+  - first:
+      213: -6342761035096964576
+    second: ShieldHaloSheet_111
+  - first:
+      213: 4284728439532333171
+    second: ShieldHaloSheet_112
+  - first:
+      213: -9085115655254899683
+    second: ShieldHaloSheet_113
+  - first:
+      213: -1089082919372370116
+    second: ShieldHaloSheet_114
+  - first:
+      213: -4056006939897044015
+    second: ShieldHaloSheet_115
+  - first:
+      213: -1102516699161155542
+    second: ShieldHaloSheet_116
+  - first:
+      213: 3517817406747368898
+    second: ShieldHaloSheet_117
+  - first:
+      213: 5440360165296488867
+    second: ShieldHaloSheet_118
+  - first:
+      213: -729746101034113306
+    second: ShieldHaloSheet_119
+  - first:
+      213: 8919238945487839546
+    second: ShieldHaloSheet_120
+  - first:
+      213: 549630783095151206
+    second: ShieldHaloSheet_121
+  - first:
+      213: -1924833334279772357
+    second: ShieldHaloSheet_122
+  - first:
+      213: 8162355895950389231
+    second: ShieldHaloSheet_123
+  - first:
+      213: 8240303867812835555
+    second: ShieldHaloSheet_124
+  - first:
+      213: -4904307469280732960
+    second: ShieldHaloSheet_125
+  - first:
+      213: 3756012465892565767
+    second: ShieldHaloSheet_126
+  - first:
+      213: -1598566324533515587
+    second: ShieldHaloSheet_127
+  - first:
+      213: 4748783313448850818
+    second: ShieldHaloSheet_128
+  - first:
+      213: -8411201675540358698
+    second: ShieldHaloSheet_129
+  - first:
+      213: -628309790203470178
+    second: ShieldHaloSheet_130
+  - first:
+      213: -3121606597842901062
+    second: ShieldHaloSheet_131
+  - first:
+      213: 928214894590982724
+    second: ShieldHaloSheet_132
+  - first:
+      213: 2619815044973222306
+    second: ShieldHaloSheet_133
+  - first:
+      213: -8197508923479373064
+    second: ShieldHaloSheet_134
+  - first:
+      213: -7394336742598521733
+    second: ShieldHaloSheet_135
+  - first:
+      213: 5250733223574095693
+    second: ShieldHaloSheet_136
+  - first:
+      213: 645587791927851685
+    second: ShieldHaloSheet_137
+  - first:
+      213: 3688153825010932528
+    second: ShieldHaloSheet_138
+  - first:
+      213: 4805149298412454073
+    second: ShieldHaloSheet_139
+  - first:
+      213: -4803860659026859981
+    second: ShieldHaloSheet_140
+  - first:
+      213: -7593419813530498279
+    second: ShieldHaloSheet_141
+  - first:
+      213: 6005443771384443339
+    second: ShieldHaloSheet_142
+  - first:
+      213: -8014122785566214925
+    second: ShieldHaloSheet_143
+  - first:
+      213: 2709784540743602021
+    second: ShieldHaloSheet_144
+  - first:
+      213: -6344760135957078195
+    second: ShieldHaloSheet_145
+  - first:
+      213: 4840704734947319453
+    second: ShieldHaloSheet_146
+  - first:
+      213: -5606659658206204109
+    second: ShieldHaloSheet_147
+  - first:
+      213: -2288352366571174456
+    second: ShieldHaloSheet_148
+  - first:
+      213: -5587032609465492282
+    second: ShieldHaloSheet_149
+  - first:
+      213: 2775038865228631958
+    second: ShieldHaloSheet_150
+  - first:
+      213: 8363814581930768998
+    second: ShieldHaloSheet_151
+  - first:
+      213: -6007109357455405263
+    second: ShieldHaloSheet_152
+  - first:
+      213: -8181703620203833789
+    second: ShieldHaloSheet_153
+  - first:
+      213: 7961422432926649226
+    second: ShieldHaloSheet_154
+  - first:
+      213: 4275664414375654703
+    second: ShieldHaloSheet_155
+  - first:
+      213: 4371610583336367686
+    second: ShieldHaloSheet_156
+  - first:
+      213: 5542286695947321414
+    second: ShieldHaloSheet_157
+  - first:
+      213: -3340764229310675839
+    second: ShieldHaloSheet_158
+  - first:
+      213: 527276597222141536
+    second: ShieldHaloSheet_159
+  - first:
+      213: 8244759356218669229
+    second: ShieldHaloSheet_160
+  - first:
+      213: -7855391014585669720
+    second: ShieldHaloSheet_161
+  - first:
+      213: -4172921098797357174
+    second: ShieldHaloSheet_162
+  - first:
+      213: 4078042859287929961
+    second: ShieldHaloSheet_163
+  - first:
+      213: -1533973265349619502
+    second: ShieldHaloSheet_164
+  - first:
+      213: -3315002011532939380
+    second: ShieldHaloSheet_165
+  - first:
+      213: 1591061045592567830
+    second: ShieldHaloSheet_166
+  - first:
+      213: -633403021924020951
+    second: ShieldHaloSheet_167
+  - first:
+      213: -7276280272506423434
+    second: ShieldHaloSheet_168
+  - first:
+      213: 5916068423476376234
+    second: ShieldHaloSheet_169
+  - first:
+      213: -4991678786442859348
+    second: ShieldHaloSheet_170
+  - first:
+      213: 478234921939944703
+    second: ShieldHaloSheet_171
+  - first:
+      213: 6430198057236381524
+    second: ShieldHaloSheet_172
+  - first:
+      213: 3516296721371287913
+    second: ShieldHaloSheet_173
+  - first:
+      213: 912121628029164508
+    second: ShieldHaloSheet_174
+  - first:
+      213: 8807138613128090907
+    second: ShieldHaloSheet_175
+  - first:
+      213: -6376707596388915865
+    second: ShieldHaloSheet_176
+  - first:
+      213: 722884775894530746
+    second: ShieldHaloSheet_177
+  - first:
+      213: 6230507627602680679
+    second: ShieldHaloSheet_178
+  - first:
+      213: 1492307137534056756
+    second: ShieldHaloSheet_179
+  - first:
+      213: 4274334563417503624
+    second: ShieldHaloSheet_180
+  - first:
+      213: -5976675668528595128
+    second: ShieldHaloSheet_181
+  - first:
+      213: -6939593105745571740
+    second: ShieldHaloSheet_182
+  - first:
+      213: 390111939682328392
+    second: ShieldHaloSheet_183
+  - first:
+      213: 6259326032686489925
+    second: ShieldHaloSheet_184
+  - first:
+      213: 8369214355474101857
+    second: ShieldHaloSheet_185
+  - first:
+      213: 6208210244213139538
+    second: ShieldHaloSheet_186
+  - first:
+      213: 5850860313085568267
+    second: ShieldHaloSheet_187
+  - first:
+      213: 4056857454997855950
+    second: ShieldHaloSheet_188
+  - first:
+      213: 1904228657820370199
+    second: ShieldHaloSheet_189
+  - first:
+      213: -1597087040586545346
+    second: ShieldHaloSheet_190
+  - first:
+      213: -7754460778391542531
+    second: ShieldHaloSheet_191
+  - first:
+      213: 9159952806996197175
+    second: ShieldHaloSheet_192
+  - first:
+      213: -7525669101399182046
+    second: ShieldHaloSheet_193
+  - first:
+      213: -868516203556437681
+    second: ShieldHaloSheet_194
+  - first:
+      213: -7925077211733524458
+    second: ShieldHaloSheet_195
+  - first:
+      213: 4133091249761202116
+    second: ShieldHaloSheet_196
+  - first:
+      213: 2849694977569070782
+    second: ShieldHaloSheet_197
+  - first:
+      213: 3119198954849494491
+    second: ShieldHaloSheet_198
+  - first:
+      213: 2234933299671492464
+    second: ShieldHaloSheet_199
+  - first:
+      213: -2393243913868990545
+    second: ShieldHaloSheet_200
+  - first:
+      213: 6495470826859336859
+    second: ShieldHaloSheet_201
+  - first:
+      213: -5262480664924244173
+    second: ShieldHaloSheet_202
+  - first:
+      213: 7125161630361941580
+    second: ShieldHaloSheet_203
+  - first:
+      213: -6012360142618382387
+    second: ShieldHaloSheet_204
+  - first:
+      213: -2201606223703351622
+    second: ShieldHaloSheet_205
+  - first:
+      213: -4865119857907810857
+    second: ShieldHaloSheet_206
+  - first:
+      213: -2132279578531579536
+    second: ShieldHaloSheet_207
+  - first:
+      213: 2618697821436434244
+    second: ShieldHaloSheet_208
+  - first:
+      213: -7207163301613950303
+    second: ShieldHaloSheet_209
+  - first:
+      213: 387981809901120398
+    second: ShieldHaloSheet_210
+  - first:
+      213: 8052827893601597977
+    second: ShieldHaloSheet_211
+  - first:
+      213: -5533187630313812369
+    second: ShieldHaloSheet_212
+  - first:
+      213: 3768395646841470515
+    second: ShieldHaloSheet_213
+  - first:
+      213: 6245142629010766175
+    second: ShieldHaloSheet_214
+  - first:
+      213: 3683933904403645578
+    second: ShieldHaloSheet_215
+  - first:
+      213: 7824305962712308553
+    second: ShieldHaloSheet_216
+  - first:
+      213: -3366338396297902685
+    second: ShieldHaloSheet_217
+  - first:
+      213: 1605602914862120430
+    second: ShieldHaloSheet_218
+  - first:
+      213: -6513268411177238389
+    second: ShieldHaloSheet_219
+  - first:
+      213: 2936514678620985917
+    second: ShieldHaloSheet_220
+  - first:
+      213: 1720192440642477934
+    second: ShieldHaloSheet_221
+  - first:
+      213: 4690147873944683581
+    second: ShieldHaloSheet_222
+  - first:
+      213: -478143601306600157
+    second: ShieldHaloSheet_223
+  - first:
+      213: -7924868188898871355
+    second: ShieldHaloSheet_224
+  - first:
+      213: 5772377852703952466
+    second: ShieldHaloSheet_225
+  - first:
+      213: 1045481762339657350
+    second: ShieldHaloSheet_226
+  - first:
+      213: 1345081648537273985
+    second: ShieldHaloSheet_227
+  - first:
+      213: 2838563776861514600
+    second: ShieldHaloSheet_228
+  - first:
+      213: -6216472451525250075
+    second: ShieldHaloSheet_229
+  - first:
+      213: 7709724254075956534
+    second: ShieldHaloSheet_230
+  - first:
+      213: -2466736294420878843
+    second: ShieldHaloSheet_231
+  - first:
+      213: -2111034959043346344
+    second: ShieldHaloSheet_232
+  - first:
+      213: 324319208519272115
+    second: ShieldHaloSheet_233
+  - first:
+      213: 7593435967802699266
+    second: ShieldHaloSheet_234
+  - first:
+      213: -4663405457918076582
+    second: ShieldHaloSheet_235
+  - first:
+      213: -4504002323426450278
+    second: ShieldHaloSheet_236
+  - first:
+      213: 347560140188719848
+    second: ShieldHaloSheet_237
+  - first:
+      213: -2187650707047830194
+    second: ShieldHaloSheet_238
+  - first:
+      213: -9206035137856057101
+    second: ShieldHaloSheet_239
+  - first:
+      213: -1938185051130962510
+    second: ShieldHaloSheet_240
+  - first:
+      213: 6663366610203179142
+    second: ShieldHaloSheet_241
+  - first:
+      213: 9191052126097359723
+    second: ShieldHaloSheet_242
+  - first:
+      213: 6893215798328482491
+    second: ShieldHaloSheet_243
+  - first:
+      213: -8509821758234480728
+    second: ShieldHaloSheet_244
+  - first:
+      213: -119213616802501089
+    second: ShieldHaloSheet_245
+  - first:
+      213: -1518971256056925374
+    second: ShieldHaloSheet_246
+  - first:
+      213: -6005639074931716774
+    second: ShieldHaloSheet_247
+  - first:
+      213: 3025327154878261061
+    second: ShieldHaloSheet_248
+  - first:
+      213: 4858356952950794049
+    second: ShieldHaloSheet_249
+  - first:
+      213: -3922632650688692811
+    second: ShieldHaloSheet_250
+  - first:
+      213: 731328296815432157
+    second: ShieldHaloSheet_251
+  - first:
+      213: -8481506015083568100
+    second: ShieldHaloSheet_252
+  - first:
+      213: 7911774725073327216
+    second: ShieldHaloSheet_253
+  - first:
+      213: -6447138815731634240
+    second: ShieldHaloSheet_254
+  - first:
+      213: 337077295152708691
+    second: ShieldHaloSheet_255
+  - first:
+      213: -1700929545566227471
+    second: ShieldHaloSheet_256
+  - first:
+      213: -4562840772022238170
+    second: ShieldHaloSheet_257
+  - first:
+      213: -3598758491741355932
+    second: ShieldHaloSheet_258
+  - first:
+      213: -8552750674433002501
+    second: ShieldHaloSheet_259
+  - first:
+      213: 2887103558985016478
+    second: ShieldHaloSheet_260
+  - first:
+      213: 7358667959775346884
+    second: ShieldHaloSheet_261
+  - first:
+      213: 1906532242789808865
+    second: ShieldHaloSheet_262
+  - first:
+      213: -8435180368794856789
+    second: ShieldHaloSheet_263
+  - first:
+      213: -3905329912331239762
+    second: ShieldHaloSheet_264
+  - first:
+      213: -5218449713050447128
+    second: ShieldHaloSheet_265
+  - first:
+      213: -5925198658164279732
+    second: ShieldHaloSheet_266
+  - first:
+      213: -1761111336401301289
+    second: ShieldHaloSheet_267
+  - first:
+      213: -307366363887419489
+    second: ShieldHaloSheet_268
+  - first:
+      213: 5326750394501081633
+    second: ShieldHaloSheet_269
+  - first:
+      213: 2527057515279989127
+    second: ShieldHaloSheet_270
+  - first:
+      213: -2071246670519482298
+    second: ShieldHaloSheet_271
+  - first:
+      213: -6493454218715705947
+    second: ShieldHaloSheet_272
+  - first:
+      213: -1433117072889251665
+    second: ShieldHaloSheet_273
+  - first:
+      213: -8151206788055660146
+    second: ShieldHaloSheet_274
+  - first:
+      213: -273977730338170759
+    second: ShieldHaloSheet_275
+  - first:
+      213: -1585219465821461362
+    second: ShieldHaloSheet_276
+  - first:
+      213: -7489951793218619338
+    second: ShieldHaloSheet_277
+  - first:
+      213: -8852980511084911062
+    second: ShieldHaloSheet_278
+  - first:
+      213: -6539285538520732083
+    second: ShieldHaloSheet_279
+  - first:
+      213: -2871541218418830001
+    second: ShieldHaloSheet_280
+  - first:
+      213: -3213855647689488006
+    second: ShieldHaloSheet_281
+  - first:
+      213: -2556114985800096609
+    second: ShieldHaloSheet_282
+  - first:
+      213: -1453708381609762391
+    second: ShieldHaloSheet_283
+  - first:
+      213: -1425103807411628983
+    second: ShieldHaloSheet_284
+  - first:
+      213: 8499966195614695119
+    second: ShieldHaloSheet_285
+  - first:
+      213: 2336273620528705722
+    second: ShieldHaloSheet_286
+  - first:
+      213: 1340454195816680439
+    second: ShieldHaloSheet_287
+  - first:
+      213: -6013272495403102696
+    second: ShieldHaloSheet_288
+  - first:
+      213: 7193365128677366907
+    second: ShieldHaloSheet_289
+  - first:
+      213: -2944937798233482542
+    second: ShieldHaloSheet_290
+  - first:
+      213: -600858823288202455
+    second: ShieldHaloSheet_291
+  - first:
+      213: 8204448984939800437
+    second: ShieldHaloSheet_292
+  - first:
+      213: -8650303868313028545
+    second: ShieldHaloSheet_293
+  - first:
+      213: -5513019363712210543
+    second: ShieldHaloSheet_294
+  - first:
+      213: -8694801951738216913
+    second: ShieldHaloSheet_295
+  - first:
+      213: 4485451127082193195
+    second: ShieldHaloSheet_296
+  - first:
+      213: 1553554665844623162
+    second: ShieldHaloSheet_297
+  - first:
+      213: 1652266429226834160
+    second: ShieldHaloSheet_298
+  - first:
+      213: 2360432078853573170
+    second: ShieldHaloSheet_299
+  - first:
+      213: 2644406315111940769
+    second: ShieldHaloSheet_300
+  - first:
+      213: 762412240296683201
+    second: ShieldHaloSheet_301
+  - first:
+      213: 6360661096764940582
+    second: ShieldHaloSheet_302
+  - first:
+      213: -2176182822903146513
+    second: ShieldHaloSheet_303
+  - first:
+      213: 3638488907358087032
+    second: ShieldHaloSheet_304
+  - first:
+      213: -3356948696808142168
+    second: ShieldHaloSheet_305
+  - first:
+      213: 6185318868199583208
+    second: ShieldHaloSheet_306
+  - first:
+      213: -5641387420190335597
+    second: ShieldHaloSheet_307
+  - first:
+      213: 8490829366461839801
+    second: ShieldHaloSheet_308
+  - first:
+      213: 4964156792133222733
+    second: ShieldHaloSheet_309
+  - first:
+      213: -7698486952228821194
+    second: ShieldHaloSheet_310
+  - first:
+      213: -245339834327367106
+    second: ShieldHaloSheet_311
+  - first:
+      213: 3235841381067667815
+    second: ShieldHaloSheet_312
+  - first:
+      213: -3831302973526778940
+    second: ShieldHaloSheet_313
+  - first:
+      213: -4488036670106475780
+    second: ShieldHaloSheet_314
+  - first:
+      213: 6654784599539510774
+    second: ShieldHaloSheet_315
+  - first:
+      213: 6402542269896179701
+    second: ShieldHaloSheet_316
+  - first:
+      213: 6796505277144574399
+    second: ShieldHaloSheet_317
+  - first:
+      213: -6689244443195811520
+    second: ShieldHaloSheet_318
+  - first:
+      213: 3001032586618146739
+    second: ShieldHaloSheet_319
+  - first:
+      213: 8059755975917439208
+    second: ShieldHaloSheet_320
+  - first:
+      213: -2649800058728571166
+    second: ShieldHaloSheet_321
+  - first:
+      213: -3017914753417981732
+    second: ShieldHaloSheet_322
+  - first:
+      213: 8105365405698732657
+    second: ShieldHaloSheet_323
+  - first:
+      213: 7358635388330311736
+    second: ShieldHaloSheet_324
+  - first:
+      213: 5938807277230534725
+    second: ShieldHaloSheet_325
+  - first:
+      213: -1130633863008672834
+    second: ShieldHaloSheet_326
+  - first:
+      213: -2472116375243764079
+    second: ShieldHaloSheet_327
+  - first:
+      213: -1193640267568138434
+    second: ShieldHaloSheet_328
+  - first:
+      213: -4912839682995846820
+    second: ShieldHaloSheet_329
+  - first:
+      213: 5393634489443754615
+    second: ShieldHaloSheet_330
+  - first:
+      213: 5797908237244782892
+    second: ShieldHaloSheet_331
+  - first:
+      213: -3222572615143927985
+    second: ShieldHaloSheet_332
+  - first:
+      213: -8049165167973053953
+    second: ShieldHaloSheet_333
+  - first:
+      213: 1305072876135956889
+    second: ShieldHaloSheet_334
+  - first:
+      213: -779171945352432690
+    second: ShieldHaloSheet_335
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ShieldHaloSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6480
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35a91cb475ef002f0800000000000000
+      internalID: -1008526665644402093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldHaloSheet_1
+      rect:
+        serializedVersion: 2
+        x: 1482
+        y: 6480
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d54a3996b7e7b93e0800000000000000
+      internalID: -2045902537192397731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldHaloSheet_2
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 6480
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a19f9c1c19e84310800000000000000
+      internalID: 1389616791992373664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldHaloSheet_3
+      rect:
+        serializedVersion: 2
+        x: 4440
+        y: 6480
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cae081cf764dbe980800000000000000
+      internalID: -8508473527910265172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldHaloSheet_4
+      rect:
+        serializedVersion: 2
+        x: 5920
+        y: 6480
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6205e380cc562ea80800000000000000
+      internalID: -8439070824752852954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldHaloSheet_5
+      rect:
+        serializedVersion: 2
+        x: 7400
+        y: 6480
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bfad34d09eeff9f0800000000000000
+      internalID: -432364733400764494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldHaloSheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4860
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1bff98c349d64810800000000000000
+      internalID: 1749324390431980318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldHaloSheet_7
+      rect:
+        serializedVersion: 2
+        x: 1480
+        y: 4860
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 271a5a17ade2d6d50800000000000000
+      internalID: 6732088533733187954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldHaloSheet_8
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 4860
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08d23c1d9d36647e0800000000000000
+      internalID: -1781626815400170112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldHaloSheet_9
+      rect:
+        serializedVersion: 2
+        x: 4440
+        y: 4860
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca27474c423b480b0800000000000000
+      internalID: -5727255855612267860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldHaloSheet_10
+      rect:
+        serializedVersion: 2
+        x: 5920
+        y: 4860
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7987080d0f777330800000000000000
+      internalID: 3708572512108906877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldHaloSheet_11
+      rect:
+        serializedVersion: 2
+        x: 7400
+        y: 4860
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9076fcef685486120800000000000000
+      internalID: 2407250446932469513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldHaloSheet_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3240
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e02fadab16a384eb0800000000000000
+      internalID: -4735470816758926834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldHaloSheet_13
+      rect:
+        serializedVersion: 2
+        x: 1480
+        y: 3240
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56d933e02697ba2a0800000000000000
+      internalID: -6725148156495684251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldHaloSheet_14
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 3240
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfc05f15c9f59f9c0800000000000000
+      internalID: -3892975277890532099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldHaloSheet_15
+      rect:
+        serializedVersion: 2
+        x: 4440
+        y: 3240
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 672df33326d4c7e90800000000000000
+      internalID: -7026656234442861962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldHaloSheet_16
+      rect:
+        serializedVersion: 2
+        x: 5920
+        y: 3240
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 775ca455db872bc20800000000000000
+      internalID: 3220769438098441591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldHaloSheet_17
+      rect:
+        serializedVersion: 2
+        x: 7400
+        y: 3240
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2aeef8b0b4729de0800000000000000
+      internalID: -1327870637754095061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldHaloSheet_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1620
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37ece98ad5f5dfd90800000000000000
+      internalID: -7062383784781492621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldHaloSheet_19
+      rect:
+        serializedVersion: 2
+        x: 1480
+        y: 1620
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c58f9708a1edde9c0800000000000000
+      internalID: -3896213897199617956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldHaloSheet_20
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 1620
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bbc92d1c235554e0800000000000000
+      internalID: -1993595811108631630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldHaloSheet_21
+      rect:
+        serializedVersion: 2
+        x: 4440
+        y: 1620
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc19e8131298fe690800000000000000
+      internalID: -7570681672928161329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldHaloSheet_22
+      rect:
+        serializedVersion: 2
+        x: 5920
+        y: 1620
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7bdfc70128886dc0800000000000000
+      internalID: -3645514222910055554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldHaloSheet_23
+      rect:
+        serializedVersion: 2
+        x: 7400
+        y: 1620
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cf8d8051ea713720800000000000000
+      internalID: 2824173549475696578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldHaloSheet_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8eb5c5d3007e6430800000000000000
+      internalID: 3778080299184144012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldHaloSheet_25
+      rect:
+        serializedVersion: 2
+        x: 1480
+        y: 0
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a23d8b5a5edae6b0800000000000000
+      internalID: -5266152334591970654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldHaloSheet_26
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 0
+        width: 1480
+        height: 1620
+      alignment: 9
+      pivot: {x: 0.48, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29866edfbba177980800000000000000
+      internalID: -8541328773563914094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 9637e903e81963541908c49f001f95bc
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ShieldHaloSheet_0: -1008526665644402093
+      ShieldHaloSheet_1: -2045902537192397731
+      ShieldHaloSheet_10: 3708572512108906877
+      ShieldHaloSheet_11: 2407250446932469513
+      ShieldHaloSheet_12: -4735470816758926834
+      ShieldHaloSheet_13: -6725148156495684251
+      ShieldHaloSheet_14: -3892975277890532099
+      ShieldHaloSheet_15: -7026656234442861962
+      ShieldHaloSheet_16: 3220769438098441591
+      ShieldHaloSheet_17: -1327870637754095061
+      ShieldHaloSheet_18: -7062383784781492621
+      ShieldHaloSheet_19: -3896213897199617956
+      ShieldHaloSheet_2: 1389616791992373664
+      ShieldHaloSheet_20: -1993595811108631630
+      ShieldHaloSheet_21: -7570681672928161329
+      ShieldHaloSheet_22: -3645514222910055554
+      ShieldHaloSheet_23: 2824173549475696578
+      ShieldHaloSheet_24: 3778080299184144012
+      ShieldHaloSheet_25: -5266152334591970654
+      ShieldHaloSheet_26: -8541328773563914094
+      ShieldHaloSheet_3: -8508473527910265172
+      ShieldHaloSheet_4: -8439070824752852954
+      ShieldHaloSheet_5: -432364733400764494
+      ShieldHaloSheet_6: 1749324390431980318
+      ShieldHaloSheet_7: 6732088533733187954
+      ShieldHaloSheet_8: -1781626815400170112
+      ShieldHaloSheet_9: -5727255855612267860
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

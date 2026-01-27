@@ -1,0 +1,9 @@
+﻿<Solution>
+  <Project Path="Google.Play.Games.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="Meryel.CodeAssist.Editor.csproj" />
+  <Project Path="Google.Play.Games.Editor.csproj" />
+  <Project Path="IngameDebugConsole.Runtime.csproj" />
+  <Project Path="IngameDebugConsole.Editor.csproj" />
+  <Project Path="Assembly-CSharp-Editor.csproj" />
+</Solution>

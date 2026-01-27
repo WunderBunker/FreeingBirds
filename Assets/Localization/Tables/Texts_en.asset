@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Texts_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: d2fa2e82970ffc64ab4cb044c19929bf, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 22741528576
+    m_Localized: Press To Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 74134335488
+    m_Localized: Leaderboard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 150470668288
+    m_Localized: 'Your rank is  : {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 348462788608
+    m_Localized: Main volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 398911877120
+    m_Localized: Music volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 467174174720
+    m_Localized: Sound volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8320177942528
+    m_Localized: Failed to load leaderboard data
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8325760561152
+    m_Localized: Failed to load player data
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8326268071936
+    m_Localized: 'Your score isn''t visible because your google profile seems to
+      be private
+
+      Profile -> Settings -> Confidentiality'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28958657622016
+    m_Localized: Change
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13061102673866752
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13413876800434176
+    m_Localized: Loading player data
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

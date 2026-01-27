@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Texts Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: Texts
+  m_TableCollectionNameGuidString: d2fa2e82970ffc64ab4cb044c19929bf
+  m_Entries:
+  - m_Id: 22741528576
+    m_Key: PressToStart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 74134335488
+    m_Key: LeaderBoard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 150470668288
+    m_Key: YourRankIs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 348462788608
+    m_Key: MainVolume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 398911877120
+    m_Key: MusicVolume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 467174174720
+    m_Key: SoundVolume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8320177942528
+    m_Key: NoLeaderboardSave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8325760561152
+    m_Key: NoPlayerSave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8326268071936
+    m_Key: PlayerPrivate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28958657622016
+    m_Key: Change
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13061102673866752
+    m_Key: IdLocal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13413876800434176
+    m_Key: LoadingPlayerData
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6077349366161998113
+  references:
+    version: 2
+    RefIds:
+    - rid: 6077349366161998113
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1764683454023

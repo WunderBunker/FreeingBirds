@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5ac850aeafa04a479908043b84de049, type: 3}
+  m_Name: BirdList
+  m_EditorClassIdentifier: Assembly-CSharp::BirdList
+  List:
+  - Index: 0
+    Id: Bird1
+    Image: {fileID: -1284403428, guid: 759296d3cd372fe4d98e24b87613f038, type: 3}
+    ImageOutlineOffset: {x: 0.25, y: 0.5}
+    ScoreToBeAccessible: 0
+    Color: {r: 0.5371175, g: 0, b: 1, a: 1}
+    BirdPrefab: {fileID: 3365294646811328215, guid: 87934ae651f0d2b4cbf4fd978e26e4a7, type: 3}
+    BirdOverride: {fileID: 11400000, guid: 1adca4a223efbb3468780b10a4bc4b0c, type: 2}
+    Pipes: {fileID: 2100000, guid: 4fea2d574c8d9134d8ed67b126fd1ddd, type: 2}
+    CamMeteo: {fileID: 1272485599565472509, guid: a96e653795a69014592c5101d82f1347, type: 3}
+    MapMeteo: {fileID: 2988759883989029524, guid: 522cfcb122bd68d499253bdf5caa8f7f, type: 3}
+    CanvasMeteo: {fileID: 4826467777185022709, guid: ad592230aeeeb2848b376f55c41bab3d, type: 3}
+    IntroMusic: {fileID: 8300000, guid: 2921a9570a48895498c6d24091c5eaf2, type: 3}
+    LoopMusic: {fileID: 8300000, guid: 8513e5584a8555d4398e0cefe9080018, type: 3}
+  - Index: 1
+    Id: Bird2
+    Image: {fileID: -319997024, guid: 759296d3cd372fe4d98e24b87613f038, type: 3}
+    ImageOutlineOffset: {x: 0.5, y: 0.5}
+    ScoreToBeAccessible: 0
+    Color: {r: 0, g: 0.9764706, b: 1, a: 1}
+    BirdPrefab: {fileID: 3365294646811328215, guid: 625f3425f9021ca4b982b915202d2760, type: 3}
+    BirdOverride: {fileID: 11400000, guid: 731b6a7bd6e4d2048ad0d9ff74843ff9, type: 2}
+    Pipes: {fileID: 2100000, guid: c230b2fb68c1c70498a7d1766f4d6fec, type: 2}
+    CamMeteo: {fileID: 1272485599565472509, guid: c3814ff00f4e8a8439c291604f6611fe, type: 3}
+    MapMeteo: {fileID: 2988759883989029524, guid: 197e482f9063ac6469ce2e60fdfd7af1, type: 3}
+    CanvasMeteo: {fileID: 4826467777185022709, guid: e4c5992726320c249a41ecf0b98e6f3a, type: 3}
+    IntroMusic: {fileID: 8300000, guid: 28d35b6ababb4dd4aae0f12a968f5090, type: 3}
+    LoopMusic: {fileID: 8300000, guid: 9e9a15a08eb3fa243929ee7b361d6d59, type: 3}
+  - Index: 2
+    Id: Bird3
+    Image: {fileID: 1384396779, guid: 759296d3cd372fe4d98e24b87613f038, type: 3}
+    ImageOutlineOffset: {x: 0.7, y: 0.7}
+    ScoreToBeAccessible: 0
+    Color: {r: 0, g: 1, b: 0.034508705, a: 1}
+    BirdPrefab: {fileID: 3365294646811328215, guid: 270dcad7a102b15489fef6eadc2a738c, type: 3}
+    BirdOverride: {fileID: 11400000, guid: 3bdec42d5ee5bb540b73961a1a221565, type: 2}
+    Pipes: {fileID: 2100000, guid: db2c1f9c78044e84b836aa6511b27326, type: 2}
+    CamMeteo: {fileID: 1272485599565472509, guid: 5f47e5e3d50950240a0e891807b9df29, type: 3}
+    MapMeteo: {fileID: 2988759883989029524, guid: 79606c878aed5344bb6a122a8a6704af, type: 3}
+    CanvasMeteo: {fileID: 4826467777185022709, guid: d3fd54d7a16f82e4da831bbc9a4619cb, type: 3}
+    IntroMusic: {fileID: 8300000, guid: 0a0403a321c8594428d6bc53244c9f36, type: 3}
+    LoopMusic: {fileID: 8300000, guid: 8a78e946d5d728f4a928a20498c45461, type: 3}
+  - Index: 3
+    Id: Bird4
+    Image: {fileID: -67592477, guid: 759296d3cd372fe4d98e24b87613f038, type: 3}
+    ImageOutlineOffset: {x: 0.88, y: 0.56}
+    ScoreToBeAccessible: 50
+    Color: {r: 1, g: 0, b: 0.08150673, a: 1}
+    BirdPrefab: {fileID: 3365294646811328215, guid: 9c487e520835ee141a31953635ba8299, type: 3}
+    BirdOverride: {fileID: 11400000, guid: 749d923f29cfef543ad147100c7ab1bf, type: 2}
+    Pipes: {fileID: 2100000, guid: 6ca75fc83e958e745970870193bb7c8f, type: 2}
+    CamMeteo: {fileID: 1272485599565472509, guid: 8d69a31a36b242d42b3e7d5a5cf380cb, type: 3}
+    MapMeteo: {fileID: 2988759883989029524, guid: c85cd013a486e7d4da1c570f79d73afc, type: 3}
+    CanvasMeteo: {fileID: 4826467777185022709, guid: 69ded400daeb71841b118599aea7a950, type: 3}
+    IntroMusic: {fileID: 8300000, guid: 765f86210813c0c4085ad46582eb9afb, type: 3}
+    LoopMusic: {fileID: 8300000, guid: bf48908a084c85d4b999c6f6bb3494be, type: 3}
+  - Index: 4
+    Id: Bird5
+    Image: {fileID: -393352162, guid: 759296d3cd372fe4d98e24b87613f038, type: 3}
+    ImageOutlineOffset: {x: 0.07, y: 0.98}
+    ScoreToBeAccessible: 50
+    Color: {r: 1, g: 0.789616, b: 0, a: 1}
+    BirdPrefab: {fileID: 3365294646811328215, guid: d2009d6981c893843ae46a4cad49451b, type: 3}
+    BirdOverride: {fileID: 11400000, guid: 0d565fcd3cc93d245be945380dfdceab, type: 2}
+    Pipes: {fileID: 2100000, guid: 6ca75fc83e958e745970870193bb7c8f, type: 2}
+    CamMeteo: {fileID: 1272485599565472509, guid: 8d69a31a36b242d42b3e7d5a5cf380cb, type: 3}
+    MapMeteo: {fileID: 2988759883989029524, guid: c85cd013a486e7d4da1c570f79d73afc, type: 3}
+    CanvasMeteo: {fileID: 4826467777185022709, guid: 69ded400daeb71841b118599aea7a950, type: 3}
+    IntroMusic: {fileID: 8300000, guid: 765f86210813c0c4085ad46582eb9afb, type: 3}
+    LoopMusic: {fileID: 8300000, guid: bf48908a084c85d4b999c6f6bb3494be, type: 3}
