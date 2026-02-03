@@ -46,17 +46,17 @@ public class PathScript : MonoBehaviour
 
         NodeList.Clear();
 
-        /*On génère deux premiers chunks d'avance pour positionner le player juste avant la fin du premier, il aura ainsi toujours un 1/2 chunk de retard sur leur génération*/
+        /*On génère 3 premiers chunks d'avance pour positionner le player au milieu du premier, il aura ainsi toujours un 1,5 chunk de retard sur leur génération*/
         /*Generation des noeuds du chemin*/
         GenNodes(3 * _nbNodesPerChunk);
         /*Génération du chunk autour du cheminn*/
-        _chunksGenerator.CreateChunk(0, _nbNodesPerChunk);
+        _chunksGenerator.CreateChunk(0, _nbNodesPerChunk, false);
         _chunksGenerator.CreateChunk(_nbNodesPerChunk, _nbNodesPerChunk, false);
         _chunksGenerator.CreateChunk(2 * _nbNodesPerChunk, _nbNodesPerChunk, true);
 
         _retardPlayer = Mathf.RoundToInt(_nbNodesPerChunk * 1.5f);
 
-        /*Initialisation de la positiond de le player au milieu du premier chunk*/
+        /*Initialisation de la position du player au milieu du premier chunk*/
         _playerControl.InitiatePlayerOnPath(NodeList.Count - 1 - _retardPlayer);
     }
 
@@ -228,7 +228,7 @@ public class PathScript : MonoBehaviour
                 Gizmos.DrawLine(NodeList[i], NodeList[i + 1]);
             }
             Gizmos.color = UnityEngine.Color.blue;
-            Gizmos.DrawSphere(NodeList[i], 1);
+            Gizmos.DrawSphere(NodeList[i], 0.25f);
 
         }
     }

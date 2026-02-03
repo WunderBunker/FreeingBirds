@@ -20,7 +20,6 @@ public class MenuManager : MonoBehaviour
     //Canvas avec l'effet de pluie sur la caméra
     public GameObject CanvasMeteo;
 
-
     //Menu de sélection d'un perso
     protected GameObject _birdMenu;
 
@@ -149,10 +148,6 @@ public class MenuManager : MonoBehaviour
         _inGameMenu.SetActive(false);
         CanvasMeteo?.SetActive(true);
 
-        _startMenu.transform.Find("TouchToStartText").GetComponent<TextMeshProUGUI>().color =
-            GetBird(SaveManager.SafeSave.SelectedBirdId).Color;
-
-
         PartieManager.Instance.LoadStartMenu();
     }
 
@@ -178,14 +173,19 @@ public class MenuManager : MonoBehaviour
             if (pBirdId != SaveManager.SafeSave.SelectedBirdId)
                 AudioManager.Instance.PlayClickSound();
 
-            _homeMenu.transform.Find("HighScorePrompt").GetComponent<TextMeshProUGUI>().text = SaveManager.SafeSave.HighScores[pBirdId].ToString("0");
-            _homeMenu.transform.Find("HighScorePrompt").GetComponent<TextMeshProUGUI>().color = vNewBird.Color;
-            _inGameMenu.transform.Find("ScorePrompt").GetComponent<TextMeshProUGUI>().color = vNewBird.Color;
-            _inGameMenu.transform.Find("ScorePrompt").GetChild(0).GetComponent<TextMeshProUGUI>().color = vNewBird.Color;
-            _inGameMenu.transform.Find("ScorePrompt").GetChild(0).GetComponent<TextMeshProUGUI>().alpha = 0;
-
             PartieManager.Instance.ChangeBird(vNewBird);
         }
+    }
+
+    public void ApplyBirdData(Bird pBird)
+    {
+        _startMenu.transform.Find("TouchToStartText").GetComponent<TextMeshProUGUI>().color = pBird.Color;
+
+        _homeMenu.transform.Find("HighScorePrompt").GetComponent<TextMeshProUGUI>().text = SaveManager.SafeSave.HighScores[pBird.Id].ToString("0");
+        _homeMenu.transform.Find("HighScorePrompt").GetComponent<TextMeshProUGUI>().color = pBird.Color;
+        _inGameMenu.transform.Find("ScorePrompt").GetComponent<TextMeshProUGUI>().color = pBird.Color;
+        _inGameMenu.transform.Find("ScorePrompt").GetChild(0).GetComponent<TextMeshProUGUI>().color = pBird.Color;
+        _inGameMenu.transform.Find("ScorePrompt").GetChild(0).GetComponent<TextMeshProUGUI>().alpha = 0;
     }
 
     public Bird GetBird(string pId)

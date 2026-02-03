@@ -17,6 +17,7 @@ public class AdditionPrompt : MonoBehaviour
     {
         _textMesh = GetComponent<TextMeshProUGUI>();
         _particles = GetComponent<ParticleSystem>();
+        _textMesh.alpha = 0;
     }
 
     // Update is called once per frame

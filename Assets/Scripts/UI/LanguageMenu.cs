@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -8,11 +9,16 @@ using UnityEngine.Localization.Tables;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UI;
 
-public class LanguageMenu : MonoBehaviour
+public class LanguageMenu : MonoBehaviour, IChildEnabler
 {
     Transform _localLayout;
     GameObject _localButton;
     List<AsyncOperationHandle<Sprite>> _imgTasks = new();
+
+    void OnEnable()
+    {
+        EnableChilds(false, new string[]{"Book"});
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -55,12 +61,18 @@ public class LanguageMenu : MonoBehaviour
     public void Quit()
     {
         AudioManager.Instance.PlayClickSound();
-        Destroy(gameObject);
+        transform.Find("Book").GetComponent<BookImage>().Quit();
     }
 
     void OnDestroy()
     {
         foreach (var lTask in _imgTasks)
             if (lTask.IsValid()) Addressables.Release(lTask);
+    }
+
+    public void EnableChilds(bool pActive, string[] pExternalFlag = null)
+    {
+        for (int i = 0; i < transform.childCount; i++)
+            if (!pExternalFlag.Contains(transform.GetChild(i).name)) transform.GetChild(i).gameObject.SetActive(pActive);
     }
 }

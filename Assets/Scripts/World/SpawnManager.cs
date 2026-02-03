@@ -2,7 +2,7 @@ using Random = System.Random;
 using UnityEngine;
 using System.Collections.Generic;
 using Unity.Mathematics;
-using System.Linq;
+using UnityEditor;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -34,9 +34,13 @@ public class SpawnManager : MonoBehaviour
     string _currentBird;
 
     float _lastSizeTubeA = 0;
-    List<Tools.OrientedRect> _listeTubeBoxB = new();
     float _lastSizeTubeB = 0;
     private float _avancement;
+
+    List<List<GameObject>> _objectChunks = new();
+
+    struct DebugLabel { public Vector3 Position; public string Text; }
+    List<DebugLabel> _debugLabelList = new();
 
     void Awake()
     {
@@ -52,9 +56,25 @@ public class SpawnManager : MonoBehaviour
     public void GetPlayerInfos()
     {
         _playerShell = GameObject.FindGameObjectWithTag("PlayerShell");
-        _playerSize = _playerShell.GetComponentInChildren<PlayerControl>() != null ? _playerShell.GetComponentInChildren<PlayerControl>().PlayerSize : Vector2.zero;
-        _playerSize *= _playerSizeCoeff;
         _currentBird = SaveManager.SafeSave.SelectedBirdId;
+        CalculatePlayerSizeWithCoeff(_playerShell.GetComponentInChildren<PlayerControl>() != null ? _playerShell.GetComponentInChildren<PlayerControl>().PlayerSize : Vector2.zero);
+    }
+
+    public void CalculatePlayerSizeWithCoeff(Vector2 pBaseSize)
+    {
+        _playerSize = pBaseSize;
+        _playerSize *= _playerSizeCoeff;
+    }
+
+    public void StartNewObjectsChunk(bool pClearFirstChunk)
+    {
+        if (pClearFirstChunk)
+        {
+            foreach (GameObject lObject in _objectChunks[0]) Destroy(lObject);
+            _objectChunks.RemoveAt(0);
+        }
+
+        _objectChunks.Add(new List<GameObject>());
     }
 
     public void GererNewSpawnsOnSegment(Vector2[] pStartEndOnA, Vector2[] pStartEndOnB, float pDistancePathToWall)
@@ -111,6 +131,7 @@ public class SpawnManager : MonoBehaviour
                 if (vTubeTypesOnB[lCptSection] > 0) SpawnMeanTubeOnWall(lStart, lEnd, _tubeDistanceLimitFromWall, "B", vTubeTypesOnB[lCptSection]);
             }
 
+        //Spawn d'un switch smode humain
         if (_currentBird == "Bird5" && _playerShell.GetComponentInChildren<Human>() is { } lHumman && lHumman._mustSpawnSwitch)
             _playerShell.GetComponentInChildren<Human>().SpawnModeSwitch((pStartEndOnA[1] + pStartEndOnB[1]) / 2, (pStartEndOnA[1] - pStartEndOnB[1]).normalized);
     }
@@ -197,6 +218,7 @@ public class SpawnManager : MonoBehaviour
                 vMeanTube = Instantiate(_meanTubePrefab, transform.position, Quaternion.identity);
                 break;
         }
+        _objectChunks[^1].Add(vMeanTube);
 
         //On positionne l'objet
         vMeanTube.transform.SetParent(_meanTubesParent);
@@ -240,6 +262,8 @@ public class SpawnManager : MonoBehaviour
         //On positionne l'objet
         vDollarBill.transform.SetParent(_itemsParent);
         vDollarBill.transform.position = vPosition;
+
+        _objectChunks[^1].Add(vDollarBill);
     }
 
     float GetTubeMaxSize(float pLastSize, float pDistanceLimitFromWall, Vector3 pPosition, Vector2 pDirection, float pMinSize, string pWallName)
@@ -259,7 +283,15 @@ public class SpawnManager : MonoBehaviour
             Vector2 lOrigin = (Vector2)pPosition + vOrthoDirection * 0.2f + lCptOnTubeSides * pDirection.normalized * _meanTubeSize.x;
             //On utilise pour cela un boxCast
             RaycastHit2D lHit = Physics2D.BoxCast(lOrigin, vCastBox, vAngle, vOrthoDirection, pDistanceLimitFromWall * 1.1f, vLayerMask);
-            if (lHit.collider) vMaxSize = Mathf.Min(lHit.distance - _playerSize.y, vMaxSize);
+            if (lHit.collider)
+            {
+                vMaxSize = Mathf.Min(lHit.distance - _playerSize.y, vMaxSize);
+                _debugLabelList.Add(new DebugLabel()
+                {
+                    Position = pPosition + (Vector3)vOrthoDirection * vMaxSize,
+                    Text = pWallName + " _playerSize.y : " + _playerSize.y + " lHit.distance : " + lHit.distance + " vMaxSize : " + vMaxSize
+                });
+            }
         }
 
         vMaxSize = Mathf.Clamp(vMaxSize, Mathf.FloorToInt(pMinSize), _meanTubeSize.y);
@@ -275,6 +307,34 @@ public class SpawnManager : MonoBehaviour
         if (_itemsParent != null)
             for (int lCptItem = 0; lCptItem < _itemsParent.childCount; lCptItem++)
                 Destroy(_itemsParent.GetChild(lCptItem).gameObject);
+
+        foreach (var lObjectsList in _objectChunks) lObjectsList.Clear();
+        _objectChunks.Clear();
     }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        GUIStyle style = new GUIStyle();
+        style.fontStyle = FontStyle.Bold;
+        style.fontSize = 12;
+
+        for (int i = 0; i < _debugLabelList.Count; i++)
+        {
+
+            if (i % 3 == 0) Gizmos.color = Color.magenta;
+            else if (i % 3 == 1) Gizmos.color = Color.yellow;
+            else if (i % 3 == 2) Gizmos.color = Color.blue;
+            style.normal.textColor = Gizmos.color;
+
+            var lLabel = _debugLabelList[i];
+            Gizmos.DrawSphere(lLabel.Position, 0.5f);
+            Handles.Label(lLabel.Position + Vector3.right * 0.5f, lLabel.Text, style);
+        }
+        if (_debugLabelList.Count >= 50)
+            for (int i = 0; i < 5; i++)
+                _debugLabelList.RemoveAt(0);
+    }
+#endif
 
 }

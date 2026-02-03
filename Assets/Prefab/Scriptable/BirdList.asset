@@ -67,8 +67,8 @@ MonoBehaviour:
     CamMeteo: {fileID: 1272485599565472509, guid: 8d69a31a36b242d42b3e7d5a5cf380cb, type: 3}
     MapMeteo: {fileID: 2988759883989029524, guid: c85cd013a486e7d4da1c570f79d73afc, type: 3}
     CanvasMeteo: {fileID: 4826467777185022709, guid: 69ded400daeb71841b118599aea7a950, type: 3}
-    IntroMusic: {fileID: 8300000, guid: 765f86210813c0c4085ad46582eb9afb, type: 3}
-    LoopMusic: {fileID: 8300000, guid: bf48908a084c85d4b999c6f6bb3494be, type: 3}
+    IntroMusic: {fileID: 8300000, guid: 8671b9cceb71639489557d2509bb5851, type: 3}
+    LoopMusic: {fileID: 8300000, guid: 0d076fd70a3d6ce4ea96e5bb901d832b, type: 3}
   - Index: 4
     Id: Bird5
     Image: {fileID: -393352162, guid: 759296d3cd372fe4d98e24b87613f038, type: 3}
@@ -81,5 +81,5 @@ MonoBehaviour:
     CamMeteo: {fileID: 1272485599565472509, guid: 8d69a31a36b242d42b3e7d5a5cf380cb, type: 3}
     MapMeteo: {fileID: 2988759883989029524, guid: c85cd013a486e7d4da1c570f79d73afc, type: 3}
     CanvasMeteo: {fileID: 4826467777185022709, guid: 69ded400daeb71841b118599aea7a950, type: 3}
-    IntroMusic: {fileID: 8300000, guid: 765f86210813c0c4085ad46582eb9afb, type: 3}
-    LoopMusic: {fileID: 8300000, guid: bf48908a084c85d4b999c6f6bb3494be, type: 3}
+    IntroMusic: {fileID: 8300000, guid: 6e96879e358ccde44976fe4cfe131e29, type: 3}
+    LoopMusic: {fileID: 8300000, guid: df9c8199b9813464a83f1616c9e22b92, type: 3}

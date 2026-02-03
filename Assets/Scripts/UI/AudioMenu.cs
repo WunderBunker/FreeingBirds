@@ -9,13 +9,16 @@ public class AudioMenu : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnEnable()
     {
+        _mixer.GetFloat("MasterVolume", out float vMasterVol);
+        _mixer.GetFloat("FXVolume", out float vFxVol);
+        _mixer.GetFloat("MusicVolume", out float vMusicVol);
 
         transform.Find("MainVolume").GetComponent<Slider>().value
-            = Mathf.Pow(10, SaveManager.SafeSave.SettingsSave.MasterVolume / 20);
+            = Mathf.Pow(10, vMasterVol / 20);
         transform.Find("FxVolume").GetComponent<Slider>().value
-            = Mathf.Pow(10, SaveManager.SafeSave.SettingsSave.FxVolume / 20);
+            = Mathf.Pow(10, vFxVol / 20);
         transform.Find("MusicVolume").GetComponent<Slider>().value
-            = Mathf.Pow(10, SaveManager.SafeSave.SettingsSave.MusicVolume / 20);
+            = Mathf.Pow(10, vMusicVol / 20);
     }
 
     void OnDisable()

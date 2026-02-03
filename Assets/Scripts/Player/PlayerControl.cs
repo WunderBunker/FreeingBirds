@@ -10,6 +10,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField][Range(0, 50)] public float _speed;
     [SerializeField] float _fallSpeed;
     [SerializeField] float _flappMaxSpeed;
+    [SerializeField] float _directionChangeSpeed = 2;
 
     [SerializeField] float _flappAttenuationTime;
     [SerializeField] float _flappTimeBfBoost = 0.2f;
@@ -19,22 +20,24 @@ public class PlayerControl : MonoBehaviour
 
     [SerializeField] public float ScoreNeededToDoubleSpeed;
 
-    PathScript _pathScript;
-
     public Vector2 PlayerSize;
     public FlapTrail FlapTrail;
 
     public Vector2 _directionOnPath { get; private set; } = Vector2.zero;
 
+    //Prochain noeud du chemin où le player doit se rendre
+    public Vector3 _nextPosition { get; private set; }
+    //Indice du prochain noeud dans la liste du PathScript
+    public int _currentPathIndex { get; private set; }
+
+    PathScript _pathScript;
+
     private float _initZ;
     float _initFlappAttenuationDuration;
     private float _initSpeed;
 
-    //Prochain noeud du chemin où le player doit se rendre
-    public Vector3 _nextPosition { get; private set; }
+    Vector3 _targetDirectionOnPath;
     protected Vector3 _lastPosition;
-    //Indice du prochain noeud dans la liste du PathScript
-    public int _currentPathIndex { get; private set; }
 
     Transform _playerShellTransform;
 
@@ -69,6 +72,8 @@ public class PlayerControl : MonoBehaviour
         _currentPathIndex = 0;
 
         PlayerSize = GetComponent<BoxCollider2D>().size * transform.localScale;
+
+        FlapTrail = transform.Find("FlapTrail").GetComponent<FlapTrail>();
     }
 
     // Start is called before the first frame update
@@ -91,6 +96,7 @@ public class PlayerControl : MonoBehaviour
         _playerShellTransform.position = _lastPosition;
 
         _directionOnPath = (_nextPosition - _lastPosition).normalized;
+        _targetDirectionOnPath = _directionOnPath;
 
         _camera.GetComponent<CamFollowPath>().InitCam(new Vector3(_lastPosition.x, _lastPosition.y, 0));
     }
@@ -118,8 +124,10 @@ public class PlayerControl : MonoBehaviour
             _currentPathIndex = _currentPathIndex + 1;
             _nextPosition = new Vector3(_pathScript.NodeList[_currentPathIndex].x, _pathScript.NodeList[_currentPathIndex].y, _initZ);
 
-            _directionOnPath = (_nextPosition - _lastPosition).normalized;
+            _targetDirectionOnPath = (_nextPosition - _lastPosition).normalized;
         }
+
+        _directionOnPath = Vector3.MoveTowards(_directionOnPath, _targetDirectionOnPath, _directionChangeSpeed * Time.deltaTime);
     }
 
     private void UpdateSpeed()

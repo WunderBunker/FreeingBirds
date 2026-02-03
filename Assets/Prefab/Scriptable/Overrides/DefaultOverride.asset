@@ -30,6 +30,7 @@ MonoBehaviour:
   ValuesForDollarBill: 0000000000000000
   HorizonAvancementForMaxSpawn: 5000
   PlayerSizeCoeff: 1
-  DecalagePlayerCam: 10
+  PrctDecalagePlayerCam: 0.5
   CamDistanceForMaxSpeed: 10
   CamOrthoSize: 12
+  CamMaxSpeed: 30

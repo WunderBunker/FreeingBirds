@@ -229,10 +229,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea977a4fcbc93a47b86a452fb16ed9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BirdOverride: {fileID: 11400000, guid: 749d923f29cfef543ad147100c7ab1bf, type: 2}
   _speed: 15
   _fallSpeed: 30
   _flappMaxSpeed: 65
+  _directionChangeSpeed: 2
   _flappAttenuationTime: 0.35
   _flappTimeBfBoost: 0.07
   _boostMaxTime: 0.2
@@ -243,6 +243,7 @@ MonoBehaviour:
   _cameraTiltPace: 10
   ScoreNeededToDoubleSpeed: 5000
   PlayerSize: {x: 0, y: 0}
+  FlapTrail: {fileID: 0}
 --- !u!212 &8137456054836743704
 SpriteRenderer:
   m_ObjectHideFlags: 0

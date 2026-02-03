@@ -41,6 +41,7 @@ class GrabScreenPass : ScriptableRenderPass
     public override void RecordRenderGraph(RenderGraph pRenderGraph, ContextContainer pFrameData)
     {
         UniversalResourceData vFrameData = pFrameData.Get<UniversalResourceData>();
+        
         TextureDesc vDescription = vFrameData.cameraDepthTexture.GetDescriptor(pRenderGraph);
         vDescription.depthBufferBits = 0;
         vDescription.width = (int)(vDescription.width * ResolutionScale);

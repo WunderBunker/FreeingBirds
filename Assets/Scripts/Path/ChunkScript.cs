@@ -3,6 +3,7 @@ using System;
 using UnityEngine;
 using System.Linq;
 
+
 #if UNITY_EDITOR
 using UnityEditor;
 [CustomEditor(typeof(ChunkScript))]
@@ -170,11 +171,18 @@ public class ChunkScript : MonoBehaviour
                 vLastChunkLastIndexB++;
             }
 
+        //Tant qu'il n'y a pas eu de remap (premiers chunks) rien ne sera supprimé, donc on check pour transmettre l'info au spawnmanager après
+        bool vPointsAreRemoved = (vPointsToRemoveA.Count > 0) || (vPointsToRemoveB.Count > 0);
+
+        //On supprime les anciens points des chunks maintenant en dehors du path
         foreach (PolyPoint lPoly in vPointsToRemoveA)
             _lastPointListA.Remove(lPoly);
         foreach (PolyPoint lPoly in vPointsToRemoveB)
             _lastPointListB.Remove(lPoly);
+        
 
+        //On prévient le spawnmanager qu'il entame un nouveau chunk
+        _spawnManager.StartNewObjectsChunk(vPointsAreRemoved);
 
         /*On parcours chaque Nouveau vecteur du chemin pour le chunk en cours */
         for (int lCptNewVector = 0; lCptNewVector < _newVectorList.Count(); lCptNewVector++)

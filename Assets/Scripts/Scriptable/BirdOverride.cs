@@ -40,9 +40,10 @@ public class BirdOverride : ScriptableObject
     public float HorizonAvancementForMaxSpawn;
     public float PlayerSizeCoeff = 0;
 
-    public float DecalagePlayerCam;
+    [Range(0, 1)] public float PrctDecalagePlayerCam;
     public float CamDistanceForMaxSpeed;
     public float CamOrthoSize;
+    public float CamMaxSpeed;
 
     public void OverrideProperties(bool pSlowCamSizeSwitxh = false)
     {
@@ -106,9 +107,11 @@ public class BirdOverride : ScriptableObject
         CamFollowPath vCamFollowPath;
         vCamFollowPath = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CamFollowPath>();
         if (IsDefault || CamDistanceForMaxSpeed != 0)
-            vCamFollowPath._camDistanceForMaxSpeedOrtho = CamDistanceForMaxSpeed;
-        if (IsDefault || DecalagePlayerCam != 0)
-            vCamFollowPath._decalagePlayerCam = DecalagePlayerCam;
+            vCamFollowPath._camDistanceForMaxSpeed = CamDistanceForMaxSpeed;
+        if (IsDefault || CamMaxSpeed != 0)
+            vCamFollowPath._camMaxSpeed = CamMaxSpeed;
+        if (IsDefault || PrctDecalagePlayerCam != 0)
+            vCamFollowPath._prctDecalagePlayerCam = PrctDecalagePlayerCam;
         if (IsDefault || CamOrthoSize != 0)
         {
             if (!pSlowCamSizeSwitch)
@@ -149,8 +152,9 @@ public class BirdOverride : ScriptableObject
 
         CamFollowPath vCamFollowPath;
         vCamFollowPath = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CamFollowPath>();
-        CamDistanceForMaxSpeed = vCamFollowPath._camDistanceForMaxSpeedOrtho;
-        DecalagePlayerCam = vCamFollowPath._decalagePlayerCam;
+        CamDistanceForMaxSpeed = vCamFollowPath._camDistanceForMaxSpeed;
+        CamMaxSpeed = vCamFollowPath._camMaxSpeed;
+        PrctDecalagePlayerCam = vCamFollowPath._prctDecalagePlayerCam;
         CamOrthoSize = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().orthographicSize;
 
 #if UNITY_EDITOR

@@ -175,7 +175,7 @@ PlayerSettings:
     iPhone: 0
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
-  AndroidBundleVersionCode: 37
+  AndroidBundleVersionCode: 39
   AndroidMinSdkVersion: 23
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
@@ -960,7 +960,7 @@ PlayerSettings:
   cloudProjectId: 5fc8fed3-da51-4e1d-8aa9-ace529c8601a
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: ABBIHI
+  projectName: FreeingBirds
   organizationId: wundermeister
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

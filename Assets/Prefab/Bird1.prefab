@@ -231,6 +231,7 @@ MonoBehaviour:
   _speed: 10
   _fallSpeed: 18
   _flappMaxSpeed: 35
+  _directionChangeSpeed: 2
   _flappAttenuationTime: 0.25
   _flappTimeBfBoost: 0.02
   _boostMaxTime: 0.3

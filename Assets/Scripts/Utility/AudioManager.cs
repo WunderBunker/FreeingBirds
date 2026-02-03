@@ -62,8 +62,8 @@ public class AudioManager : MonoBehaviour
         Action<PlayerSave> aGetSave = (pPlayerSave) =>
         {
             _mainMixer.SetFloat("MasterVolume", pPlayerSave.SettingsSave.MasterVolume);
-            _mainMixer.SetFloat("FXVolume", pPlayerSave.SettingsSave.MasterVolume);
-            _mainMixer.SetFloat("MusicVolume", pPlayerSave.SettingsSave.MasterVolume);
+            _mainMixer.SetFloat("FXVolume", pPlayerSave.SettingsSave.FxVolume);
+            _mainMixer.SetFloat("MusicVolume", pPlayerSave.SettingsSave.MusicVolume);
         };
 
         if (SaveManager._save == null)

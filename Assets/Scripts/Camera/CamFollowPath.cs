@@ -1,14 +1,21 @@
 using UnityEngine;
 using System.Collections;
+using System;
+using Unity.Mathematics;
 
 public class CamFollowPath : MonoBehaviour
 {
-    [SerializeField] public float _decalagePlayerCam;
-
-    //Bird2 - Distance à partir de laquelle la caméra est à maxspeed pour rejoindre le joueur
-    [SerializeField] public float _camDistanceForMaxSpeedOrtho;
-    [SerializeField] public float _camMaxSpeedOnOrtho;
+    //Décalage souhaité avec le joueur sur axe du chemin en pourcentage d'une demi-largeur d'écran (distance max)
+    [SerializeField][Range(0, 1)] public float _prctDecalagePlayerCam;
+    //Distance à partir de laquelle la caméra est à maxspeed pour rejoindre le joueur sur axe ortho
+    [SerializeField] public float _camDistanceForMaxSpeed;
+    [SerializeField] public float _camMaxSpeed;
+    [SerializeField] float _camMaxAcceleration = 1;
     [SerializeField] public Transform RainCam;
+    private float _worldHalfWidth;
+
+    public bool DontSmoothSpeed;
+    float _lastCurrentSpeedOrtho;
 
     Transform _playerShell;
 
@@ -20,6 +27,7 @@ public class CamFollowPath : MonoBehaviour
     Animator _tiltingAnim;
 
     Coroutine _slowChangingSize;
+    private Vector2 vTargetPosition;
 
     //On utilise Awake au lieu de start afin d'initialiser les objets de la caméra avant le start du pathScript qui viedra l'affecter
     private void Awake()
@@ -27,7 +35,7 @@ public class CamFollowPath : MonoBehaviour
         _playerShell = GameObject.FindGameObjectWithTag("PlayerShell").transform;
         _partieManager = PartieManager.Instance.GetComponent<PartieManager>();
 
-        _screenRatio = Screen.height / Screen.width;
+        _screenRatio = (float)Screen.height / Screen.width;
 
         _tiltingAnim = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("TiltSymbol").GetComponent<Animator>();
     }
@@ -45,6 +53,8 @@ public class CamFollowPath : MonoBehaviour
         RainCam.eulerAngles = Vector3.zero;
         _lastPLayerPosition = Vector3.zero;
         transform.position = pPosition + new Vector3(0, 0, transform.position.z - pPosition.z);
+
+        _worldHalfWidth = GetComponent<Camera>().orthographicSize / _screenRatio;
     }
 
     //Déplace la caméra vers le prochain noeud
@@ -54,30 +64,22 @@ public class CamFollowPath : MonoBehaviour
         Vector3 vDirectionPath = _playerShell.GetComponentInChildren<PlayerControl>()._directionOnPath;
         float vMagnitudeOnPath;
         if (_lastPLayerPosition != Vector3.zero)
-        {
-            vMagnitudeOnPath = Vector3.Project(_playerShell.position - _lastPLayerPosition, vDirectionPath).magnitude;
-            int vMagnitudeSign = Vector2.Angle(_playerShell.position - _lastPLayerPosition, vDirectionPath) > 90 ? -1 : 1;
-            vMagnitudeOnPath = vMagnitudeOnPath * vMagnitudeSign;
-        }
+            vMagnitudeOnPath = Vector3.Dot(_playerShell.position - _lastPLayerPosition, vDirectionPath);
         else vMagnitudeOnPath = _playerShell.GetComponentInChildren<PlayerControl>()._speed * Time.deltaTime;
 
-        //Calcul du décalage souhaité avec le player en fonction du ratio de l'écran 
-        // (si player va vers le bas on ne veut pas un décalage à 100% sur l'axe du chemin par ex, car sinon on finit complettement hors cadre)
-        float[] vDecalageForThisDirection = new float[2];
-        float vAngle = Mathf.Abs(Vector2.SignedAngle(Vector2.right, vDirectionPath));
-        vAngle = vAngle > 90 ? (180 - vAngle) : vAngle;
-
-        //Decalage souhaité avec le player sur l'axe du chemin
-        vDecalageForThisDirection[0] = Mathf.Lerp(1, _screenRatio, Mathf.InverseLerp(0, 90, vAngle)) * _decalagePlayerCam;
-        //Decalage souhaité avec le player sur l'axe orthogonal au chemin
-        vDecalageForThisDirection[1] = Mathf.Lerp(1, _screenRatio, Mathf.InverseLerp(90, 0, vAngle)) * _decalagePlayerCam;
+        //Calcul du décalage souhaité avec le player en fonction du ratio de l'écran et de l'angle
+        // (si player va vers le bas on ne veut pas un décalage à 100% de la largeur , car sinon on finit complettement hors cadre)
+        //on prend transform.right pour bien tenir compte des rotations de la caméra (chameau)
+        float vAngle = Vector2.Angle(transform.right, vDirectionPath) * Mathf.Deg2Rad;
+        float vScreenRadius = Tools.EllipseRadius(_worldHalfWidth, _worldHalfWidth * _screenRatio, vAngle);
+        float vDecalageForThisDirection = vScreenRadius * _prctDecalagePlayerCam;
 
         //Maj des positions selon les mouvements du player et de l'écart souhaité pour  la camera
         Vector3 vDeltaCam;
         switch (SaveManager.SafeSave.SelectedBirdId)
         {
             case "Bird4":
-                vDeltaCam = CamMoveToPlayer(new float[] { -vDecalageForThisDirection[0], vDecalageForThisDirection[1] }, vDirectionPath, vMagnitudeOnPath);
+                vDeltaCam = CamMoveToPlayer(vDecalageForThisDirection, -vDirectionPath, vMagnitudeOnPath);
                 break;
             default:
                 vDeltaCam = CamMoveToPlayer(vDecalageForThisDirection, vDirectionPath, vMagnitudeOnPath);
@@ -88,38 +90,42 @@ public class CamFollowPath : MonoBehaviour
         _lastPLayerPosition = _playerShell.position;
     }
 
-    Vector3 CamMoveToPlayer(float[] pEcartFromPlayer, Vector2 pDirectionPath, float pMagnitudeOnPath)
+    Vector3 CamMoveToPlayer(float pEcartFromPlayer, Vector2 pDirectionPath, float pMagnitudeOnPath)
     {
         float vDeltaTime = Time.deltaTime;
+        float vCurrentMaxSpeed = DontSmoothSpeed ? _camMaxSpeed * 2 : _camMaxSpeed;
 
-        //On récupère les infos sur la distance actuelle avec le joueur
-        Vector2 vDistanceToPlayer = (Vector2)_playerShell.position - (Vector2)transform.position;
-
-        //On calcul l'avancement à effectuer sur l'axe du chemin
-        Vector2 vDeltaCamOnPath;
-        float vSignOfAlignmentOnPath = Vector2.Angle(vDistanceToPlayer, pDirectionPath) > 90 ? -1 : 1;
-        float vDistanceToPlayerProjectPath = Vector3.Project(vDistanceToPlayer, pDirectionPath).magnitude * vSignOfAlignmentOnPath;
+        // I - On calcul l'avancement à effectuer sur l'axe du chemin
+        vTargetPosition = (Vector2)_playerShell.position + pDirectionPath * pEcartFromPlayer;
+        float vDistanceToTargetOnPath = Vector3.Dot(vTargetPosition - (Vector2)transform.position, pDirectionPath);
 
         //Pour ce calcul :
         //  - On récupère le dernier mouvement effectué par le joueur
-        vDeltaCamOnPath = pMagnitudeOnPath * pDirectionPath;
-        //  - On ajoute un écart selon le sens souhaité si le dernier mouvement du joueur va dans ce sens ou si la distance au joueur est inférieure l'écart souhaité dans l'absolue
-        if (vSignOfAlignmentOnPath == Mathf.Sign(pEcartFromPlayer[0]) || (Mathf.Abs(vDistanceToPlayerProjectPath) < Mathf.Abs(pEcartFromPlayer[0])))
-            vDeltaCamOnPath += Mathf.Sign(pEcartFromPlayer[0]) *
-                //  - On détermine cet écart comme étant X * la distance parcourue par le joueur (de façon à X* plus vite ou X* plus lentement afin de créer l'écart)
-                //  - Si il n'y a pas de dernier mouvement de player ou qu'on est en avance sur lui on prend une valeur arbitraire (10)   
-                ((pMagnitudeOnPath > 0 ? pMagnitudeOnPath / 5 : Time.deltaTime * 10) * pDirectionPath);
+        Vector2 vDeltaCamOnPath = pMagnitudeOnPath * pDirectionPath;
+        //vDeltaCamOnPath = vDistanceToTargetOnPath * pDirectionPath;
+        float vDistCoef = math.abs(vDistanceToTargetOnPath) / _camDistanceForMaxSpeed;
+        //  - On détermine une vitesse comprise entre 0 et la vitesse max en fonction de la distance configurée
+        float vCurrentSpeed = Mathf.Lerp(0, vCurrentMaxSpeed, vDistCoef);
+        //  - Si on a de l'avance sur la distance souhaitée au joueur on ralenti selon la grandeur de l'avance
+        if (vDistanceToTargetOnPath < 0) vDeltaCamOnPath -= pDirectionPath * Time.deltaTime * Mathf.Lerp(0, vCurrentSpeed, vDistCoef);
+        //  - Sinon on accélère
+        else vDeltaCamOnPath += pDirectionPath * Time.deltaTime * Mathf.Lerp(0, vCurrentSpeed, vDistCoef);
 
 
-        //On calcul l'avancement à effectuer sur l'axe orthogonal au chemin
-        Vector2 vDeltaCamOnOrtho;
+        // II - On calcul l'avancement à effectuer sur l'axe orthogonal au chemin
         Vector2 vOrthoPath = new Vector2(-pDirectionPath.y, pDirectionPath.x);
+        Vector2 vDistanceToPlayer = (Vector2)_playerShell.position - (Vector2)transform.position;
         float vSignOfAlignmentOnOrtho = Vector2.Angle(vDistanceToPlayer, vOrthoPath) > 90 ? -1 : 1;
-        float vDistanceToPlayerProjectOrtho = Vector3.Project(vDistanceToPlayer + vDistanceToPlayer.normalized * pEcartFromPlayer[1], vOrthoPath).magnitude;
+        float vDistanceToPlayerProjectOrtho = Vector3.Project(vDistanceToPlayer, vOrthoPath).magnitude;
+
         //Pour ce calcul :
-        //  - On incrémente la position  entre 0 et gMaxSpeed en focntion de la distance souhaitée 
-        vDeltaCamOnOrtho = Mathf.Lerp(0, _camMaxSpeedOnOrtho, Mathf.InverseLerp(0, _camDistanceForMaxSpeedOrtho, vDistanceToPlayerProjectOrtho))
-            * vSignOfAlignmentOnOrtho * vOrthoPath.normalized * vDeltaTime;
+        //  - On détermine une vitesse comprise entre 0 et la vitesse max en fonction de la distance configurée
+        vCurrentSpeed = Mathf.Lerp(0, vCurrentMaxSpeed, vDistanceToPlayerProjectOrtho / _camDistanceForMaxSpeed);
+        //  - On clamp la vitesse de manière à ne pas dépasser une certaine accélération par rapport à la dernière vitesse
+        vCurrentSpeed = Mathf.Clamp(vCurrentSpeed, _lastCurrentSpeedOrtho - _camMaxAcceleration * Time.deltaTime, _lastCurrentSpeedOrtho + _camMaxAcceleration * Time.deltaTime);
+        _lastCurrentSpeedOrtho = vCurrentSpeed;
+        //  - On calcul le delta
+        Vector2 vDeltaCamOnOrtho = vCurrentSpeed * vSignOfAlignmentOnOrtho * vOrthoPath.normalized * vDeltaTime;
 
         return vDeltaCamOnPath + vDeltaCamOnOrtho;
     }
@@ -136,7 +142,7 @@ public class CamFollowPath : MonoBehaviour
     public IEnumerator Tremour()
     {
         yield return null;
-        float vAmplitude = 1;
+        float vAmplitude = SaveManager.SafeSave.SettingsSave.MotionSickness ? 0.1f : 1;
         float vTime = 0.07f;
         transform.position += new Vector3(vAmplitude, -vAmplitude, 0f);
         yield return new WaitForSeconds(vTime);
@@ -177,4 +183,12 @@ public class CamFollowPath : MonoBehaviour
             yield return null;
         }
     }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(vTargetPosition, 1);
+    }
+#endif
 }

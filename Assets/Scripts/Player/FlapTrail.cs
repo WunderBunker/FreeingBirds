@@ -7,28 +7,28 @@ public class FlapTrail : MonoBehaviour
     [SerializeField] Color gColor2Start;
     [SerializeField] Color gColor2End;
 
-    TrailRenderer gTrail;
-    float gTrailDuration;
+    TrailRenderer _trail;
+    float _trailDuration;
 
-    bool gIsEmitting;
-    float gStartTime;
+    bool _isEmitting;
+    float _startTime;
 
     // Start is called before the first frame update
     void Awake()
     {
-        gTrail = GetComponent<TrailRenderer>();
-        gTrailDuration = gTrail.time;
-        if (transform.parent.GetComponent<PlayerControl>() is { } vPC) vPC.FlapTrail = this;
+        _trail = GetComponent<TrailRenderer>();
+        _trailDuration = _trail.time;
+        //if (transform.parent.GetComponent<PlayerControl>() is { } vPC) vPC.FlapTrail = this;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gIsEmitting)
+        if (_isEmitting)
         {
-            float vTimeSpent = Time.time - gStartTime;
-            float vCoef = vTimeSpent / gTrailDuration;
-            if (vTimeSpent < gTrailDuration)
+            float vTimeSpent = Time.time - _startTime;
+            float vCoef = vTimeSpent / _trailDuration;
+            if (vTimeSpent < _trailDuration)
             {
                 Gradient vGradient = new Gradient();
                 GradientColorKey vColorKeyStart = new GradientColorKey(Color.Lerp(gColor1Start, gColor2Start, vCoef), 0f);
@@ -38,12 +38,12 @@ public class FlapTrail : MonoBehaviour
 
                 vGradient.SetKeys(new[] { vColorKeyStart, vColorKeyEnd }, new[] { vAlphaKeyStart, vAlphaKeyEnd });
 
-                gTrail.colorGradient = vGradient;
+                _trail.colorGradient = vGradient;
             }
             else
             {
-                gTrail.emitting = false;
-                gIsEmitting = false;
+                _trail.emitting = false;
+                _isEmitting = false;
             }
         }
     }
@@ -58,10 +58,10 @@ public class FlapTrail : MonoBehaviour
 
         vGradient.SetKeys(new[] { vColorKeyStart, vColorKeyEnd }, new[] { vAlphaKeyStart, vAlphaKeyEnd });
 
-        gTrail.colorGradient = vGradient;
+        _trail.colorGradient = vGradient;
 
-        gTrail.emitting = true;
-        gIsEmitting = true;
-        gStartTime = Time.time;
+        _trail.emitting = true;
+        _isEmitting = true;
+        _startTime = Time.time;
     }
 }

@@ -9,7 +9,6 @@ public class TubeSharpnel : MonoBehaviour
     void OnEnable()
     {
         _speed = GetComponentInParent<MeanTubeFlying>()._speed;
-        transform.SetParent(transform.parent.parent);
     }
 
     // Update is called once per frame

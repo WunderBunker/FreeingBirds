@@ -18,15 +18,14 @@ public class Human : MonoBehaviour
     Mode _camCurrentMode;
     private PlayerControl vHumanControl;
 
+    Transform _itemsTransform;
+
     void Awake()
     {
         vHumanControl = GetComponent<PlayerControl>();
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
         _lastSwitchAvancement = 0;
+
+        _itemsTransform = GameObject.FindGameObjectWithTag("Map").transform.Find("Items");
 
         _mapCurrentMode = Mode.Dragon;
         _camCurrentMode = Mode.Dragon;
@@ -49,7 +48,8 @@ public class Human : MonoBehaviour
         _mustSpawnSwitch = false;
         SwitchMapToNextMode();
 
-        GameObject vSwitch = Instantiate(_modeSwitchPrefab, pPosition, Quaternion.identity);
+        //On place bien les switchs dans l'objet items pour qu'ils soient correctement détruits par le spawn manager
+        GameObject vSwitch = Instantiate(_modeSwitchPrefab, pPosition, Quaternion.identity, _itemsTransform);
         float vAngle = Vector2.SignedAngle(Vector2.up, pUpDirection);
         vSwitch.transform.eulerAngles = new Vector3(vSwitch.transform.rotation.x, vSwitch.transform.rotation.y, vAngle);
     }
@@ -60,8 +60,11 @@ public class Human : MonoBehaviour
         {
             _defaultOverridableValues.MapOveride();
             _defaultOverridableValues.SpawnsOverride();
-            _birds?.List[pModeIndex].BirdOverride.MapOveride();
-            _birds?.List[pModeIndex != 3 ? pModeIndex : 4].BirdOverride.SpawnsOverride();
+            _birds.List[pModeIndex].BirdOverride.MapOveride();
+            _birds.List[pModeIndex != 3 ? pModeIndex : 4].BirdOverride.SpawnsOverride();
+            
+            Vector2 vNextBirdSize = _birds.List[pModeIndex].BirdPrefab.GetComponent<BoxCollider2D>().size;
+            GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SpawnManager>().CalculatePlayerSizeWithCoeff(vNextBirdSize);
         };
 
         _mapCurrentMode = (_mapCurrentMode != Mode.Dragon) ? (_mapCurrentMode + 1) : Mode.Bird;
@@ -96,7 +99,6 @@ public class Human : MonoBehaviour
             ApplyModeBirdControl(_birds.List[pModeIndex != 3 ? pModeIndex : 4].BirdPrefab);
 
             PartieManager.Instance.ChangeDecor(_birds.List[pModeIndex]);
-
             GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<Bird5SpawnManager>().enabled = pModeIndex == 3;
         };
 
@@ -129,7 +131,9 @@ public class Human : MonoBehaviour
         vHumanControl.GetComponent<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         Tools.CopyComponent(vTempBird.GetComponent<ParticleSystem>(), gameObject, null);
         Destroy(gameObject.transform.Find("FlapTrail").gameObject);
-        Instantiate(vTempBird.transform.Find("FlapTrail").gameObject, transform).name = "FlapTrail";
+        var vTrail = Instantiate(vTempBird.transform.Find("FlapTrail").gameObject, transform);
+        vTrail.name = "FlapTrail";
+        gameObject.GetComponent<PlayerControl>().FlapTrail = vTrail.GetComponent<FlapTrail>();
         Destroy(vTempBird);
 
         GetComponent<SpriteRenderer>().sprite = pBirdPrefab.GetComponent<SpriteRenderer>().sprite;

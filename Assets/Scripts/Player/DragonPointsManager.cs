@@ -9,8 +9,8 @@ public class DragonPointsManager : MonoBehaviour
     void Start()
     {
         Camera vCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-
-        Transform vCameraTransform = GameObject.FindGameObjectWithTag("MainCamera").transform;
+        Transform vCameraTransform = vCamera.transform;
+        
         _bigCage = Instantiate(_bigCagePrefab, vCameraTransform.localPosition, Quaternion.identity, vCameraTransform);
         _bigCage.transform.position = vCamera.ViewportToWorldPoint(new Vector3(1, 0.3f, vCamera.nearClipPlane + 1));
     }

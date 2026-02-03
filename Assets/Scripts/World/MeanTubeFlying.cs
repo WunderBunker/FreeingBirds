@@ -49,7 +49,11 @@ public class MeanTubeFlying : MonoBehaviour
         if (collision.CompareTag("PlayerShell")) collision.GetComponent<PlayerShellscript>().Die();
         else if (_isFlying && (collision.CompareTag("PolyA") || collision.CompareTag("PolyB")) && (Time.time - _startFlyingTime > 1))
         {
-            if (_hasSharpnels) ActivateSharpnels();
+            if (_hasSharpnels)
+            {
+                ActivateSharpnels();
+                return;
+            }
             Instantiate(_destructionParticles, transform.position, Quaternion.identity, transform.parent);
             //To-do : revoir où ets le listener et peut être le mettre sur le player et adapter les volumes
             AudioManager.Instance.PlaySound(_breakingSound, 0.2f, transform.position);
@@ -59,7 +63,11 @@ public class MeanTubeFlying : MonoBehaviour
 
     void ActivateSharpnels()
     {
+        Instantiate(_destructionParticles, transform.position, Quaternion.identity, transform.parent);
+        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
         for (int lCptChildren = 0; lCptChildren < transform.childCount; lCptChildren++)
             transform.GetChild(lCptChildren).gameObject.SetActive(true);
+        this.enabled = false;
     }
 }

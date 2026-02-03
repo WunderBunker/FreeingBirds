@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public static class Tools
 {
@@ -47,66 +49,23 @@ public static class Tools
     }
 
 
-    // Représentation d’un rectangle orienté
-    public struct OrientedRect
+    public static T GetRenderFeature<T>()
     {
-        public Vector2 Center;
-        public Vector2 HalfExtents;  // largeur/2, hauteur/2
-        public float AngleRad;       // angle en radians
-
-        public OrientedRect(Vector2 pCenter, Vector2 pSize, float pAngleDeg)
+        var vUrpAsset = GraphicsSettings.currentRenderPipeline as UniversalRenderPipelineAsset;
+        if (vUrpAsset != null)
         {
-            Center = pCenter;
-            HalfExtents = pSize * 0.5f;
-            AngleRad = pAngleDeg * Mathf.Deg2Rad;
+            var vRendererData = vUrpAsset.rendererDataList[0] as UniversalRendererData;
+            if (vRendererData != null)
+                foreach (var lFeature in vRendererData.rendererFeatures)
+                {
+                    if (lFeature is T myFeature)
+                    {
+                        return myFeature;
+                    }
+                }
         }
 
-        public Vector2 Right => new Vector2(Mathf.Cos(AngleRad), Mathf.Sin(AngleRad));
-        public Vector2 Up => new Vector2(-Mathf.Sin(AngleRad), Mathf.Cos(AngleRad));
-    }
-
-    // Test principal SAT
-    public static bool Overlap(OrientedRect pRectA, OrientedRect pRectB)
-    {
-        // Axes à tester : les axes locaux de A et de B
-        Vector2[] vAxes = {
-            pRectA.Right,
-            pRectA.Up,
-            pRectB.Right,
-            pRectB.Up
-        };
-
-        foreach (var lAxis in vAxes)
-        {
-            if (!OverlapOnAxis(pRectA, pRectB, lAxis))
-                return false; // Axe séparateur trouvé => pas d’overlap
-        }
-
-        return true; // Aucun axe séparateur => overlap
-    }
-
-    // Projection d’un OBB sur un axe
-    private static bool OverlapOnAxis(OrientedRect pRectA, OrientedRect pRectB, Vector2 pAxis)
-    {
-        // Normaliser l’axe
-        pAxis.Normalize();
-
-        float vProjA = ProjectRadius(pRectA, pAxis);
-        float vProjB = ProjectRadius(pRectB, pAxis);
-
-        float vDistance = Mathf.Abs(Vector2.Dot(pRectB.Center - pRectA.Center, pAxis));
-
-        return vDistance <= vProjA + vProjB;
-    }
-
-    // Rayon projeté d’un OBB sur un axe
-    private static float ProjectRadius(OrientedRect pRect, Vector2 pAxis)
-    {
-        float vRadius =
-            Mathf.Abs(Vector2.Dot(pRect.Right * pRect.HalfExtents.x, pAxis)) +
-            Mathf.Abs(Vector2.Dot(pRect.Up * pRect.HalfExtents.y, pAxis));
-
-        return vRadius;
+        return default;
     }
 
     public static Component CopyComponent(Component pOriginal, GameObject pDestination, string[] pNoGoFlags = null)
@@ -144,22 +103,12 @@ public static class Tools
         return vCopy;
     }
 
-    public static Vector2 GetVectorToRectEdge(float pL, float pH, float pAngle)
+    public static float EllipseRadius(float pRX, float pRY, float pAlpha)
     {
-        float tan = Mathf.Tan(pAngle);
-        float cos = Mathf.Cos(pAngle);
-        float sin = Mathf.Sin(pAngle);
+        float vCosAlpha = Mathf.Cos(pAlpha);
+        float vSinAlpha = Mathf.Sin(pAlpha);
 
-        if (Mathf.Abs(tan) <= pH / pL)
-        {
-            float x = Mathf.Sign(cos) * pL / 2;
-            return new Vector2(x, x * tan);
-        }
-        else
-        {
-            float y = Mathf.Sign(sin) * pH / 2;
-            return new Vector2(y / tan, y);
-        }
+        return pRX * pRY / Mathf.Sqrt(Mathf.Pow(pRY * vCosAlpha, 2) + Mathf.Pow(pRX * vSinAlpha, 2));
     }
 }
 
@@ -209,5 +158,6 @@ public class TiltingTransforms : IEnumerable, IEnumerator
     {
         return this;
     }
+
 }
 

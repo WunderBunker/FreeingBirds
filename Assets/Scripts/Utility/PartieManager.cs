@@ -21,20 +21,10 @@ public class PartieManager : MonoBehaviour
     PlayerShellscript _playerShell;
     public GameObject _player => _playerShell._player;
 
-    protected PathScript _pathScript;
-    protected ChunkScript _chunkScript;
-    protected GameObject _homeScreen;
-    protected GameObject _noiseScreen;
-
     public PartieState _partieState = PartieState.MustLoadSave;
 
     //Avancement de la partie en cours
     public float _avancement { get; private set; }
-
-    //Compteur  pour les sky background, leur sert lorsqu'il doivent se détruire les uns les autres 
-    protected static int _skyCompteur;
-
-    protected bool _isWaitingToFinishLoadHomeMenu;
 
     public delegate void GetInGameEventHandler();
     public event GetInGameEventHandler GetInGame;
@@ -45,13 +35,21 @@ public class PartieManager : MonoBehaviour
     public delegate void GameDataReadyEventHandler();
     public event GameDataReadyEventHandler GameDataReady;
 
+    PathScript _pathScript;
+    ChunkScript _chunkScript;
+    GameObject _homeScreen;
+    GameObject _noiseScreen;
+
+    //Compteur  pour les sky background, leur sert lorsqu'ils doivent se détruire les uns les autres 
+    static int _skyCompteur;
+
     bool _mustReloadAfterDeath;
-    private GameObject _camMeteo;
-    private GameObject _mapMeteo;
+    GameObject _camMeteo;
+    GameObject _mapMeteo;
+    ColorblindRendererFeature _colorBlindRF;
 
     void Awake()
     {
-        //Application du design Singleton + persistence de scène
         if (Instance == null) Instance = this;
         else
         {
@@ -61,6 +59,8 @@ public class PartieManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+        _colorBlindRF = Tools.GetRenderFeature<ColorblindRendererFeature>();
     }
     void Start()
     {
@@ -87,11 +87,21 @@ public class PartieManager : MonoBehaviour
         if (_mustReloadAfterDeath) ChangeState(PartieState.ReloadingScene);
     }
 
+    private void InitSettings()
+    {
+        SettingsSave vSettings = SaveManager.SafeSave.SettingsSave;
+        StartCoroutine(ChangeLocale(vSettings.Language));
+        ChangeColorBlindMode(vSettings.ColorBlindMode);
+        ChangeMotionSickness(vSettings.MotionSickness);
+    }
+
     private void InitialiserScene()
     {
         //Instanciation du player
-        _playerShell.InstanciatePlayer(_menuManager.GetBird(SaveManager.SafeSave.SelectedBirdId));
-        _menuManager.InitBirdsMenu();
+        var vBird = _menuManager.GetBird(SaveManager.SafeSave.SelectedBirdId);
+        _playerShell.InstanciatePlayer(vBird);
+        ChangeDecor(vBird);
+        _menuManager.ApplyBirdData(vBird);
 
         _pathScript = GameObject.FindGameObjectWithTag("Path").GetComponent<PathScript>();
         _chunkScript = GameObject.FindGameObjectWithTag("Map").GetComponent<ChunkScript>();
@@ -117,10 +127,12 @@ public class PartieManager : MonoBehaviour
         {
             case PartieState.ReloadingScene:
                 _mustReloadAfterDeath = false;
+                InitSettings();
                 InitialiserScene();
                 _menuManager.LoadStartMenu();
                 break;
             case PartieState.GameDataIsReady:
+                InitSettings();
                 InitialiserScene();
                 GameDataReady?.Invoke();
                 _menuManager.LoadHomeMenu();
@@ -161,6 +173,7 @@ public class PartieManager : MonoBehaviour
     public void LoadStartMenu()
     {
         _chunkScript.DeleteAllhunks();
+        ChangeBird(_menuManager.GetBird(SaveManager.SafeSave.SelectedBirdId));
         _pathScript.StartPath();
         _avancement = 0;
 
@@ -192,16 +205,19 @@ public class PartieManager : MonoBehaviour
         SaveManager.MajSelectedBird(pBird.Id);
         _playerShell.InstanciatePlayer(pBird);
 
-        GameObject.FindGameObjectWithTag("MainCamera").transform.Find("ObjectDestroyer").GetComponent<ObjectDestroyer>().SetSize();
-
         //Changement du décor
         ChangeDecor(pBird);
 
         GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<DragonSpawnManager>().enabled = pBird.Id == "Bird4";
+
+        _menuManager.ApplyBirdData(pBird);
     }
 
     public void ChangeDecor(Bird pBird)
     {
+        //L'humain gère ça lui-même
+        if (pBird.Id == "Bird5") return;
+
         if (_menuManager.CanvasMeteo) Destroy(_menuManager.CanvasMeteo);
         _menuManager.CanvasMeteo = Instantiate(pBird.CanvasMeteo, _menuManager.transform);
         if (_camMeteo) Destroy(_camMeteo);
@@ -283,6 +299,19 @@ public class PartieManager : MonoBehaviour
         yield return LocalizationSettings.InitializationOperation;
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.GetLocale(pLocale);
         SaveManager.MajLocales(pLocale);
+    }
+
+    public void ChangeColorBlindMode(int pType)
+    {
+        _colorBlindRF.Type = pType;
+        SaveManager.MajColorBlindMode(pType);
+    }
+
+    public void ChangeMotionSickness(bool pValue)
+    {
+        SaveManager.MajMotionSick(pValue);
+        _menuManager.transform.Find("InGameMenu").Find("Reticule").gameObject.SetActive(pValue);
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CamFollowPath>().DontSmoothSpeed = pValue;
     }
 }
 

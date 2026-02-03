@@ -641,6 +641,16 @@ public static class SaveManager
     {
         SafeSave.SettingsSave.Language = pLanguage;
     }
+
+    public static void MajColorBlindMode(int pMode)
+    {
+        SafeSave.SettingsSave.ColorBlindMode = pMode;
+    }
+
+    public static void MajMotionSick(bool pIsMotionSick)
+    {
+        SafeSave.SettingsSave.MotionSickness = pIsMotionSick;
+    }
 }
 
 public class PlayerSave
@@ -662,6 +672,8 @@ public class SettingsSave
     public float MusicVolume = 0;
 
     public string Language;
+    public int ColorBlindMode = 0;
+    public bool MotionSickness = false;
 }
 
 [Serializable]

@@ -31,6 +31,7 @@ public class DragonSpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        //on met les spawns dans meantubes pour qu'il soient correctement supprimés à la fin
         _birdsParent = GameObject.Find("MeanTubes").transform;
         _birdsSpeedInit = _speed;
     }
@@ -38,6 +39,8 @@ public class DragonSpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PartieManager.Instance._partieState != PartieState.PartieStarted) return;
+
         _lastSpawnTimer -= Time.deltaTime;
 
         //Si notre position par rapport au mur le permet et que la c'est le bon moment alors on spaw un bird

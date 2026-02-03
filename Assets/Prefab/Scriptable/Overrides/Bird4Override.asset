@@ -29,6 +29,8 @@ MonoBehaviour:
   ValuesForFlyingTubeSharpnel: 0000000000000000
   ValuesForDollarBill: 0000000000000000
   HorizonAvancementForMaxSpawn: 0
-  DecalagePlayerCam: 8
+  PlayerSizeCoeff: 0
+  PrctDecalagePlayerCam: 0.25
   CamDistanceForMaxSpeed: 10
   CamOrthoSize: 18
+  CamMaxSpeed: 0

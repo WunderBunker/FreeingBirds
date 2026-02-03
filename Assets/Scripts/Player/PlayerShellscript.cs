@@ -20,10 +20,13 @@ public class PlayerShellscript : MonoBehaviour
         _player.transform.localEulerAngles = Vector3.zero;
         _playerControl = _player.GetComponent<PlayerControl>();
 
-        _defaultOverridableValues.OverrideProperties();
-        pBird.BirdOverride.OverrideProperties();
+        //On ne maj les propriété de l'oiseau que si on est pas en mode humain (qui gère ça lui-même)
+        if (SaveManager.SafeSave.SelectedBirdId != "Bird5")
+        {
+            _defaultOverridableValues.OverrideProperties();
+            pBird.BirdOverride.OverrideProperties();
+        }
     }
-
 
     public void Die()
     {
@@ -46,6 +49,6 @@ public class PlayerShellscript : MonoBehaviour
         AudioClip vDeathSound = _deathNoises;
         AudioManager.Instance.PlaySound(vDeathSound, 0.7f, null, true);
 
-        PartieManager.Instance.KillPlayer(vDeathSound.length);
+        StartCoroutine(PartieManager.Instance.KillPlayer(vDeathSound.length));
     }
 }
