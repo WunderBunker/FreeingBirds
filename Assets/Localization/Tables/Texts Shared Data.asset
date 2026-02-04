@@ -63,6 +63,34 @@ MonoBehaviour:
     m_Key: LoadingPlayerData
     m_Metadata:
       m_Items: []
+  - m_Id: 23137360321458176
+    m_Key: Languages
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23137365732110336
+    m_Key: ColorBlind
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23137368651345920
+    m_Key: MotionSickness
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23138169583054848
+    m_Key: NormalVision
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23138250063360000
+    m_Key: Protanopia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23138449548652544
+    m_Key: Deuteranopia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23138572315930624
+    m_Key: Tritanopia
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

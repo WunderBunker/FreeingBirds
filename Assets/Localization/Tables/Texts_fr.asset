@@ -67,6 +67,34 @@ MonoBehaviour:
     m_Localized: "Chargement des donn\xE9es du joueur"
     m_Metadata:
       m_Items: []
+  - m_Id: 23137360321458176
+    m_Localized: Languages
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23137365732110336
+    m_Localized: Daltonien
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23137368651345920
+    m_Localized: "Cin\xE9tose"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23138169583054848
+    m_Localized: Vision normale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23138250063360000
+    m_Localized: Protanopie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23138449548652544
+    m_Localized: "Deut\xE9ranopie"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23138572315930624
+    m_Localized: Tritanopie
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

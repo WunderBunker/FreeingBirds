@@ -69,6 +69,34 @@ MonoBehaviour:
     m_Localized: Spielerdaten werden geladen
     m_Metadata:
       m_Items: []
+  - m_Id: 23137368651345920
+    m_Localized: Reisekrankheit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23138572315930624
+    m_Localized: Tritanopie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23138449548652544
+    m_Localized: Deuteranopie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23138250063360000
+    m_Localized: Protanopie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23138169583054848
+    m_Localized: Normales Sehen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23137365732110336
+    m_Localized: Farbenblind
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23137360321458176
+    m_Localized: Sprachen
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
