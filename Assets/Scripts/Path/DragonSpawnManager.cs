@@ -3,29 +3,23 @@ using Random = System.Random;
 
 public class DragonSpawnManager : MonoBehaviour
 {
-
-    [SerializeField] float _spawnPeriod = 1.2f;
+    [SerializeField] Vector2 _minMaxSpawnPeriod = new Vector2(1.5f, 0.5f);
+    [SerializeField] Vector2 _minsMaxSpeed = new Vector2(15, 30);
+    [SerializeField] int[] _valuesForBirds = { 40, 100 };
+    [SerializeField] AnimationCurve _avancementCurve;
 
     [SerializeField] GameObject _bird1Spawn;
 
-    [SerializeField] float _horizonAvancementForMaxSpeed = 5000;
-
-    [SerializeField] int[] _valuesForBirds = { 40, 100 };
-
-    [SerializeField] float _speed = 20;
-    private float _birdsSpeedInit;
-    private float _scoreNeededToDoubleSpeed;
+    float _horizonAvancementForMaxSpeed;
+    float _avancementCoeff;
 
     Vector3 _birdsDirection;
+    Vector3 _basicBirdPosition;
+    float _distancePathToWall;
 
-    public bool _canSpawn = false;
-    float _lastSpawnTimer;
+    float _spawnTimer;
 
     Transform _birdsParent;
-
-    Vector3 _basicBirdPosition;
-
-    float _distancePathToWall;
 
 
     // Start is called before the first frame update
@@ -33,7 +27,6 @@ public class DragonSpawnManager : MonoBehaviour
     {
         //on met les spawns dans meantubes pour qu'il soient correctement supprimés à la fin
         _birdsParent = GameObject.Find("MeanTubes").transform;
-        _birdsSpeedInit = _speed;
     }
 
     // Update is called once per frame
@@ -41,13 +34,15 @@ public class DragonSpawnManager : MonoBehaviour
     {
         if (PartieManager.Instance._partieState != PartieState.PartieStarted) return;
 
-        _lastSpawnTimer -= Time.deltaTime;
+        _spawnTimer -= Time.deltaTime;
 
         //Si notre position par rapport au mur le permet et que la c'est le bon moment alors on spaw un bird
-        if (_canSpawn && (_lastSpawnTimer <= 0))
+        if (_spawnTimer <= 0)
         {
+            _avancementCoeff = _avancementCurve.Evaluate(PartieManager.Instance._avancement / _horizonAvancementForMaxSpeed);
+            
             SpawnRandomBird();
-            _lastSpawnTimer = _spawnPeriod;
+            _spawnTimer = Mathf.Lerp(_minMaxSpawnPeriod[0], _minMaxSpawnPeriod[1], _avancementCoeff);
         }
     }
 
@@ -59,20 +54,15 @@ public class DragonSpawnManager : MonoBehaviour
         Camera vCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
         _birdsDirection = vPlayerShell.GetComponentInChildren<PlayerControl>()._directionOnPath;
-
         _basicBirdPosition = vCamera.ViewportToWorldPoint(new Vector3(-0.5f, 0.5f, vCamera.nearClipPlane + 1));
 
-        _scoreNeededToDoubleSpeed = vPlayerShell.GetComponentInChildren<PlayerControl>().ScoreNeededToDoubleSpeed;
-
-        _canSpawn = true;
+        _horizonAvancementForMaxSpeed = GetComponent<SpawnManager>()._horizonAvancementForMaxSpawn;
     }
 
     private void SpawnRandomBird()
     {
-        float vAvancementProportionnel = PartieManager.Instance._avancement / _horizonAvancementForMaxSpeed;
-
         int vRandomValue;
-        float vValueForBird1 = Mathf.Lerp(_valuesForBirds[0], _valuesForBirds[1], vAvancementProportionnel);
+        float vValueForBird1 = Mathf.Lerp(_valuesForBirds[0], _valuesForBirds[1], _avancementCoeff);
         vRandomValue = new Random().Next(1, 100);
 
         if (vRandomValue <= vValueForBird1)
@@ -89,14 +79,9 @@ public class DragonSpawnManager : MonoBehaviour
             vNewBird.GetComponent<Bird1Spawn>()._distanceToWallDown = _distancePathToWall + vEcartFromPath;
             vNewBird.GetComponent<Bird1Spawn>()._distanceToWallUp = _distancePathToWall - vEcartFromPath;
 
-            //On lui donne sa vitesse, tirée de la formule appliquée à la caméra pour les autres modes de jeux
-            if (PartieManager.Instance._avancement > 0)
-                _speed = _birdsSpeedInit * (1 + Mathf.Pow(PartieManager.Instance._avancement / _scoreNeededToDoubleSpeed, 0.5f));
-
-            vNewBird.GetComponent<Bird1Spawn>()._speed = _speed;
+            vNewBird.GetComponent<Bird1Spawn>()._speed = Mathf.Lerp(_minsMaxSpeed[0], _minsMaxSpeed[1], _avancementCoeff);
             vNewBird.GetComponent<Bird1Spawn>()._direction = _birdsDirection;
         }
-
     }
 
 #if UNITY_EDITOR

@@ -115,7 +115,7 @@ public class BirdOverride : ScriptableObject
         if (IsDefault || CamOrthoSize != 0)
         {
             if (!pSlowCamSizeSwitch)
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().orthographicSize = CamOrthoSize;
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CamFollowPath>().ChangeSize(CamOrthoSize);
             else
                 GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CamFollowPath>().SlowChangeOrthoSize(CamOrthoSize, 10);
         }

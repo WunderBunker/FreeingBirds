@@ -25,6 +25,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] public float _tubeSpacing = 0;
     [SerializeField] public float _playerSizeCoeff = 1;
 
+    List<List<GameObject>> _objectChunks = new();
+
     Transform _meanTubesParent;
     Transform _itemsParent;
     private GameObject _playerShell;
@@ -37,7 +39,6 @@ public class SpawnManager : MonoBehaviour
     float _lastSizeTubeB = 0;
     private float _avancement;
 
-    List<List<GameObject>> _objectChunks = new();
 
     struct DebugLabel { public Vector3 Position; public string Text; }
     List<DebugLabel> _debugLabelList = new();
@@ -96,7 +97,7 @@ public class SpawnManager : MonoBehaviour
         int[] vTubeTypesOnB = new int[Mathf.RoundToInt(vLgB / (_meanTubeSize.x + _tubeSpacing))];
 
         //On prend comme référence le segment A pour délimiter les sections sur lesquelles faire spawn des items
-        int[] vSpawnItems = new int[vTubeTypesOnA.Length];
+        int[] vSpawnItems = new int[vTubeTypesOnB.Length];
 
         //On détermine ici de manière aléatoire quelles sections doivent spawner
         GetRandomTubes(ref vTubeTypesOnA);
@@ -112,12 +113,11 @@ public class SpawnManager : MonoBehaviour
         Vector2 vSection = (pStartEndOnA[1] - pStartEndOnA[0]).normalized * _meanTubeSize.x;
         Vector2 vSpacing = vSection.normalized * _tubeSpacing;
         for (int lCptSection = 0; lCptSection < vTubeTypesOnA.Length; lCptSection++)
-            if (vTubeTypesOnA[lCptSection] > 0 || vSpawnItems[lCptSection] > 0)
+            if (vTubeTypesOnA[lCptSection] > 0)
             {
                 Vector2 lStart = pStartEndOnA[0] + (vSection + vSpacing) * lCptSection + vSpacing;
                 Vector2 lEnd = lStart + vSection;
-                if (vTubeTypesOnA[lCptSection] > 0) SpawnMeanTubeOnWall(lStart, lEnd, _tubeDistanceLimitFromWall, "A", vTubeTypesOnA[lCptSection]);
-                if (vSpawnItems[lCptSection] > 0) SpawnItemInSection(lStart, lEnd, pDistancePathToWall);
+                SpawnMeanTubeOnWall(lStart, lEnd, _tubeDistanceLimitFromWall, "A", vTubeTypesOnA[lCptSection]);
             }
 
         Physics2D.SyncTransforms();
@@ -128,7 +128,17 @@ public class SpawnManager : MonoBehaviour
             {
                 Vector2 lStart = pStartEndOnB[0] + (vSection + vSpacing) * lCptSection + vSpacing;
                 Vector2 lEnd = lStart + vSection;
-                if (vTubeTypesOnB[lCptSection] > 0) SpawnMeanTubeOnWall(lStart, lEnd, _tubeDistanceLimitFromWall, "B", vTubeTypesOnB[lCptSection]);
+                SpawnMeanTubeOnWall(lStart, lEnd, _tubeDistanceLimitFromWall, "B", vTubeTypesOnB[lCptSection]);
+            }
+
+        Physics2D.SyncTransforms();
+
+        for (int lCptSection = 0; lCptSection < vSpawnItems.Length; lCptSection++)
+            if (vSpawnItems[lCptSection] > 0)
+            {
+                Vector2 lStart = pStartEndOnB[0] + (vSection + vSpacing) * lCptSection + vSpacing;
+                Vector2 lEnd = lStart + vSection;
+                SpawnItemInSection(lStart, lEnd, pDistancePathToWall);
             }
 
         //Spawn d'un switch smode humain
@@ -164,12 +174,12 @@ public class SpawnManager : MonoBehaviour
 
         Random vRanItem = new Random();
         int vRandomValue;
-        float vValueForDollarBill = Mathf.Lerp(_valuesForDollarBill[1], _valuesForDollarBill[0], vAvancementProportionnel);
+        float vValueForDollarBill = Mathf.Lerp(_valuesForDollarBill[0], _valuesForDollarBill[1], vAvancementProportionnel);
 
         for (int lCptSectionInA = 0; lCptSectionInA < pTypeItem.Length; lCptSectionInA++)
         {
             vRandomValue = vRanItem.Next(1, 100);
-            pTypeItem[lCptSectionInA] = vRandomValue <= vValueForDollarBill ? 1 : 0;
+            pTypeItem[lCptSectionInA] = (vRandomValue <= vValueForDollarBill) ? 1 : 0;
         }
     }
 
@@ -245,23 +255,42 @@ public class SpawnManager : MonoBehaviour
     {
         Random vRanDistance = new Random();
         Vector2 vDirection = (pWallSegmentEnd - pWallSegmentStart).normalized;
-        Vector2 vPosition = pWallSegmentEnd;
+        Vector2 vOrthoDirection = new Vector3(-vDirection.y, vDirection.x);
+        Vector2 vStartPosition = pWallSegmentStart + (pWallSegmentEnd - pWallSegmentStart) / 2;
+        Vector2 vPosition = vStartPosition;
 
-        float vMinSize = pDistanceLimitFromWall / 3;
+        float vMinSize = pDistanceLimitFromWall / 5;
         float vMaxSize = pDistanceLimitFromWall * 2;
 
         float vDistance = vRanDistance.Next(Mathf.FloorToInt(vMinSize), Mathf.FloorToInt(vMaxSize));
+        bool vCanSpawn = false;
 
-        Vector2 vOrthoDirection = new Vector3(-vDirection.y, vDirection.x);
-        vPosition -= vOrthoDirection * vDistance;
+        int vSafeguard = 0;
+        while (!vCanSpawn)
+        {
+            if (vSafeguard > 100)
+            {
+                Debug.Log("Infinite while SpawnItemInSection");
+                break;
+            }
+
+            vCanSpawn = true;
+            vPosition = vStartPosition + vOrthoDirection * vDistance;
+
+            Collider2D[] lOverlap = Physics2D.OverlapBoxAll(vPosition, _dollarBillPrefab.GetComponent<BoxCollider2D>().size * 1.5f, 0);
+            if (lOverlap != null)
+                foreach (Collider2D lCol in lOverlap)
+                    if (lCol.CompareTag("MeanTube")) vCanSpawn = false;
+
+            if (!vCanSpawn)
+            {
+                vDistance = vRanDistance.Next(Mathf.FloorToInt(vMinSize), Mathf.FloorToInt(vMaxSize));
+                vSafeguard++;
+            }
+        }
 
         //On instancie l'objet
-        GameObject vDollarBill;
-
-        vDollarBill = Instantiate(_dollarBillPrefab, transform.position, Quaternion.identity);
-        //On positionne l'objet
-        vDollarBill.transform.SetParent(_itemsParent);
-        vDollarBill.transform.position = vPosition;
+        GameObject vDollarBill = Instantiate(_dollarBillPrefab, vPosition, Quaternion.identity, _itemsParent);
 
         _objectChunks[^1].Add(vDollarBill);
     }

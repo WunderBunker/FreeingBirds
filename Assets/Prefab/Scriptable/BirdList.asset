@@ -59,7 +59,7 @@ MonoBehaviour:
     Id: Bird4
     Image: {fileID: -67592477, guid: 759296d3cd372fe4d98e24b87613f038, type: 3}
     ImageOutlineOffset: {x: 0.88, y: 0.56}
-    ScoreToBeAccessible: 50
+    ScoreToBeAccessible: 0
     Color: {r: 1, g: 0, b: 0.08150673, a: 1}
     BirdPrefab: {fileID: 3365294646811328215, guid: 9c487e520835ee141a31953635ba8299, type: 3}
     BirdOverride: {fileID: 11400000, guid: 749d923f29cfef543ad147100c7ab1bf, type: 2}
@@ -73,7 +73,7 @@ MonoBehaviour:
     Id: Bird5
     Image: {fileID: -393352162, guid: 759296d3cd372fe4d98e24b87613f038, type: 3}
     ImageOutlineOffset: {x: 0.07, y: 0.98}
-    ScoreToBeAccessible: 50
+    ScoreToBeAccessible: 0
     Color: {r: 1, g: 0.789616, b: 0, a: 1}
     BirdPrefab: {fileID: 3365294646811328215, guid: d2009d6981c893843ae46a4cad49451b, type: 3}
     BirdOverride: {fileID: 11400000, guid: 0d565fcd3cc93d245be945380dfdceab, type: 2}

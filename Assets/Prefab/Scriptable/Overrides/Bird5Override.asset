@@ -23,12 +23,14 @@ MonoBehaviour:
   LargeurMurs: 0
   TubeDistanceLimitFromWall: 0
   TubeSpacing: 0
-  ValuesForTube: 0100000001000000
-  ValuesForMovingTube: 0100000001000000
+  ValuesForTube: 0000000000000000
+  ValuesForMovingTube: 0000000000000000
   ValuesForFlyingTube: 0000000000000000
   ValuesForFlyingTubeSharpnel: 0000000000000000
   ValuesForDollarBill: 0000000000000000
   HorizonAvancementForMaxSpawn: 0
-  DecalagePlayerCam: 8
+  PlayerSizeCoeff: 30
+  PrctDecalagePlayerCam: 0.8
   CamDistanceForMaxSpeed: 10
   CamOrthoSize: 18
+  CamMaxSpeed: 0

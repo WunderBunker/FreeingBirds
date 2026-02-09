@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -68,20 +69,25 @@ public static class Tools
         return default;
     }
 
-    public static Component CopyComponent(Component pOriginal, GameObject pDestination, string[] pNoGoFlags = null)
+    public static Component CopyComponent(Component pOriginal, GameObject pDestination, string[] pNoGoFlags = null, bool pCreateIfNone = false)
     {
         Type vType = pOriginal.GetType();
         Component vCopy = pDestination.GetComponent(vType);
         if (vCopy == null)
         {
-            Debug.Log(string.Format("Ne peux pas copier {0} sur {1} ", vType, pDestination.name));
-            return null;
+            if (pCreateIfNone) vCopy = pDestination.AddComponent(vType);
+            else
+            {
+                Debug.Log(string.Format("Ne peux pas copier {0} sur {1} ", vType, pDestination.name));
+                return null;
+            }
         }
 
-        var vFields = vType.GetFields();
+        var vFields = vType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
         foreach (var lField in vFields)
         {
-            if (lField.IsStatic) continue;
+            if (lField.IsStatic || (!lField.IsPublic && lField.GetCustomAttribute<SerializeField>() == null)) continue;
+           
             lField.SetValue(vCopy, lField.GetValue(pOriginal));
         }
         var vProps = vType.GetProperties();

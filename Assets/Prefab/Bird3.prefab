@@ -321,10 +321,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea977a4fcbc93a47b86a452fb16ed9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 15
+  _minMaxSpeed: {x: 15, y: 30}
+  _speedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   _fallSpeed: 30
   _flappMaxSpeed: 55
-  _directionChangeSpeed: 2
+  _directionChangeSpeed: 4
   _flappAttenuationTime: 0.4
   _flappTimeBfBoost: 0.05
   _boostMaxTime: 0.25
@@ -333,7 +357,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f7d8d70f4bc69a646bfea3dc23af8e1a, type: 3}
   - {fileID: 8300000, guid: 856e484fb5e3b24439d08efc2428d130, type: 3}
   _cameraTiltPace: 10
-  ScoreNeededToDoubleSpeed: 2000
+  ScoreNeededFromMaxSpeed: 3000
   PlayerSize: {x: 0, y: 0}
   FlapTrail: {fileID: 0}
 --- !u!212 &8137456054836743704

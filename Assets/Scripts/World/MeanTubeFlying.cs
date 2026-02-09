@@ -25,7 +25,7 @@ public class MeanTubeFlying : MonoBehaviour
     {
         _playerTransform = GameObject.FindGameObjectWithTag("PlayerShell").transform;
 
-        _playerDistanceToStartFlying = _ranDistance.Next(Mathf.RoundToInt(_playerDistanceToStartFlying / 2), Mathf.RoundToInt(_playerDistanceToStartFlying * 2));
+        _playerDistanceToStartFlying = _ranDistance.Next(Mathf.RoundToInt(_playerDistanceToStartFlying / 1.5f), Mathf.RoundToInt(_playerDistanceToStartFlying * 1.5f));
     }
 
     void Update()

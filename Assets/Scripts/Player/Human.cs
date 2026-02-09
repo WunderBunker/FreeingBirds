@@ -62,7 +62,7 @@ public class Human : MonoBehaviour
             _defaultOverridableValues.SpawnsOverride();
             _birds.List[pModeIndex].BirdOverride.MapOveride();
             _birds.List[pModeIndex != 3 ? pModeIndex : 4].BirdOverride.SpawnsOverride();
-            
+
             Vector2 vNextBirdSize = _birds.List[pModeIndex].BirdPrefab.GetComponent<BoxCollider2D>().size;
             GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SpawnManager>().CalculatePlayerSizeWithCoeff(vNextBirdSize);
         };
@@ -127,13 +127,32 @@ public class Human : MonoBehaviour
     {
         vHumanControl.ApplyOtherControlParameter(pBirdPrefab.GetComponent<PlayerControl>());
 
+        pBirdPrefab.SetActive(false);
         var vTempBird = Instantiate(pBirdPrefab, transform.parent);
         vHumanControl.GetComponent<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         Tools.CopyComponent(vTempBird.GetComponent<ParticleSystem>(), gameObject, null);
+        pBirdPrefab.SetActive(true);
+
         Destroy(gameObject.transform.Find("FlapTrail").gameObject);
         var vTrail = Instantiate(vTempBird.transform.Find("FlapTrail").gameObject, transform);
         vTrail.name = "FlapTrail";
         gameObject.GetComponent<PlayerControl>().FlapTrail = vTrail.GetComponent<FlapTrail>();
+
+        if (vTempBird.GetComponent<PlayerShield>() is { } vPlayerShield)
+        {
+            Tools.CopyComponent(vPlayerShield, gameObject, null, true);
+            var vShield = Instantiate(vTempBird.transform.Find("Shield").gameObject, transform);
+            vShield.name = "Shield";
+            var vShieldHalo = Instantiate(vTempBird.transform.Find("ShieldHalo").gameObject, transform);
+            vShieldHalo.name = "ShieldHalo";
+        }
+        else if (gameObject.GetComponent<PlayerShield>() is { } vCurrentPlayerShield)
+        {
+            Destroy(vCurrentPlayerShield);
+            Destroy(transform.Find("Shield").gameObject);
+            Destroy(transform.Find("ShieldHalo").gameObject);
+        }
+
         Destroy(vTempBird);
 
         GetComponent<SpriteRenderer>().sprite = pBirdPrefab.GetComponent<SpriteRenderer>().sprite;

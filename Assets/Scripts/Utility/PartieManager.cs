@@ -156,6 +156,8 @@ public class PartieManager : MonoBehaviour
 
         SaveManager.SavePlayerSave();
 
+        GameObject.FindGameObjectWithTag("Map").GetComponentInChildren<OverlayParticles>().Activate(false);
+
         ChangeState(PartieState.LoadingHomeMenu);
         // Suite du traitement dans le Update lorsque le HomeScreen a finit de descendre
     }
@@ -186,6 +188,7 @@ public class PartieManager : MonoBehaviour
         GetInGame?.Invoke();
 
         GetComponent<MusicManager>().PlayMenuTheme();
+        GameObject.FindGameObjectWithTag("Map").GetComponentInChildren<OverlayParticles>().Activate(true);
     }
 
     //Chargement du menu pour une partie en cours de jeux
@@ -228,6 +231,8 @@ public class PartieManager : MonoBehaviour
             .GetComponent<MeshRenderer>().material = pBird.Pipes;
         GameObject.FindGameObjectWithTag("Map").transform.Find("PolygonB")
             .GetComponent<MeshRenderer>().material = pBird.Pipes;
+
+        GameObject.FindGameObjectWithTag("Map").GetComponentInChildren<OverlayParticles>().SetColor(pBird.Color);
     }
 
     //Reload de la scène lorsqu'on meurt

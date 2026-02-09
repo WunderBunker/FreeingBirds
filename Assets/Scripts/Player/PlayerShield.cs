@@ -1,10 +1,9 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public class PlayerShield : MonoBehaviour
 {
-    [SerializeField] List<AudioClip> _hurtNoisesList;
-    [SerializeField] List<AudioClip> _moneyNoisesList = new List<AudioClip>();
+    [SerializeField] AudioClip[] _hurtNoisesList;
+    [SerializeField] AudioClip[] _moneyNoisesList;
     [SerializeField] int _dollarValue = 50;
 
     [SerializeField] float _invulnerabilityTime = 1.2f;
@@ -63,7 +62,7 @@ public class PlayerShield : MonoBehaviour
             if (_shieldsCount == 0) _shieldHalo.NoMoreShield();
 
             gameObject.GetComponentInChildren<ShieldIndicator>().LooseDollar();
-            AudioManager.Instance.PlaySound(_hurtNoisesList[_ranNoise.Next(0, _hurtNoisesList.Count - 1)], 1f, transform.position);
+            AudioManager.Instance.PlaySound(_hurtNoisesList[_ranNoise.Next(0, _hurtNoisesList.Length - 1)], 1f, transform.position);
             PartieManager.Instance.GetComponent<PartieManager>().RemovePonctualAvancement(_dollarValue);
 
         }

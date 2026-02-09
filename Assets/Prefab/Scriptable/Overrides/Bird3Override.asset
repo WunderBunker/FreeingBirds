@@ -23,13 +23,14 @@ MonoBehaviour:
   LargeurMurs: 120
   TubeDistanceLimitFromWall: 12
   TubeSpacing: 0
-  ValuesForTube: 1e0000004b000000
-  ValuesForMovingTube: 0a00000032000000
+  ValuesForTube: 3200000050000000
+  ValuesForMovingTube: 1e0000003c000000
   ValuesForFlyingTube: 0700000014000000
   ValuesForFlyingTubeSharpnel: 050000000a000000
-  ValuesForDollarBill: 1e00000005000000
+  ValuesForDollarBill: 0f00000005000000
   HorizonAvancementForMaxSpawn: 2000
   PlayerSizeCoeff: 0
-  DecalagePlayerCam: 10
+  PrctDecalagePlayerCam: 0.3
   CamDistanceForMaxSpeed: 5
   CamOrthoSize: 18
+  CamMaxSpeed: 0

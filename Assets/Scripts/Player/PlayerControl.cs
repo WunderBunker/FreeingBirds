@@ -6,8 +6,9 @@ using Random = System.Random;
 
 public class PlayerControl : MonoBehaviour
 {
-    //Objet chargé de générer le chemin procédural à suivre par le player
-    [SerializeField][Range(0, 50)] public float _speed;
+    [SerializeField] Vector2 _minMaxSpeed;
+    [SerializeField] AnimationCurve _speedCurve;
+
     [SerializeField] float _fallSpeed;
     [SerializeField] float _flappMaxSpeed;
     [SerializeField] float _directionChangeSpeed = 2;
@@ -18,7 +19,9 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] List<AudioClip> _flapNoisesList;
     [SerializeField] float _cameraTiltPace = 10f;
 
-    [SerializeField] public float ScoreNeededToDoubleSpeed;
+    [SerializeField] public float ScoreNeededFromMaxSpeed;
+
+    [Range(0, 50)] public float _speed { get; private set; }
 
     public Vector2 PlayerSize;
     public FlapTrail FlapTrail;
@@ -83,7 +86,6 @@ public class PlayerControl : MonoBehaviour
         _playerShellTransform.position = new Vector3(_playerShellTransform.position.x, _playerShellTransform.position.y,
             _playerShellTransform.position.z + _camera.GetComponent<Camera>().nearClipPlane + 2); //on place le player devant la camera
         _initZ = _playerShellTransform.position.z;
-        _initSpeed = SaveManager.SafeSave.SelectedBirdId != "Bird4" ? _speed : 0;
     }
 
     //Initialisation de la position du player sur le chemin, à la position d'un noeud du chemin dont on spécifie l'index 
@@ -132,8 +134,8 @@ public class PlayerControl : MonoBehaviour
 
     private void UpdateSpeed()
     {
-        //TO-DO : remplacer par un lerp propre avec une vitesse max et min définies
-        _speed = _initSpeed * (1 + Mathf.Pow(PartieManager.Instance._avancement / ScoreNeededToDoubleSpeed, 0.5f));
+        float vCurveCoef = _speedCurve.Evaluate(PartieManager.Instance._avancement / ScoreNeededFromMaxSpeed);
+        _speed = Mathf.Lerp(_minMaxSpeed[0], _minMaxSpeed[1], vCurveCoef);
     }
 
     private void PlayerMove()

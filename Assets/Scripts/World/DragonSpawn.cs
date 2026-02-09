@@ -1,20 +1,21 @@
 using System;
-using System.Collections;
 using UnityEngine;
 
 public class DragonSpawn : MonoBehaviour
 {
-    [NonSerialized] public float _speed = 20;
+    [NonSerialized] Vector2 _minMaxSpeed = new Vector2(10, 25);
     [SerializeField] float _fallSpeed = 20;
     [SerializeField] float _flappMaxSpeed = 40;
     [SerializeField] float _flappDrag = 0.7f;
-    [SerializeField] public int _advancementToGain = 100;
-    [NonSerialized] public Vector2 _direction;
-    [SerializeField] GameObject _explosionParticles;
-    [SerializeField] AudioClip _deathSound;
+    [NonSerialized] public Vector2 Direction;
+    [SerializeField] float _lifetime = 5;
+    [SerializeField] GameObject _explosionParticle;
 
+    public float CoefAvancement;
     public float _distanceToWallUp;
     public float _distanceToWallDown;
+
+    float _speed;
 
     float _flappPeriodInit;
     float _flappPeriod;
@@ -27,6 +28,7 @@ public class DragonSpawn : MonoBehaviour
     System.Random _ranPeriode = new System.Random();
     Vector2 _orthoDirect;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,15 +36,20 @@ public class DragonSpawn : MonoBehaviour
         _lastPosition = transform.position;
         _flappAmplitude = GetAmplitudeFlapp();
         _flappPeriodInit = GetDureeFlapp();
-        if (_direction.magnitude <= 0.1f) Destroy(gameObject);
-        _orthoDirect = new Vector2(-_direction.y, _direction.x);
+        if (Direction.magnitude <= 0.1f) Destroy(gameObject);
+        _orthoDirect = new Vector2(-Direction.y, Direction.x);
 
-        transform.eulerAngles = new Vector3(0, 0, Vector2.SignedAngle(Vector2.right, _direction));
+        transform.eulerAngles = new Vector3(0, 0, Vector2.SignedAngle(Vector2.right, Direction));
+
+        _speed = Mathf.Lerp(_minMaxSpeed[0], _minMaxSpeed[1], CoefAvancement);
     }
 
     // Update is called once per frame
     void Update()
     {
+        _lifetime -= Time.deltaTime;
+        if (_lifetime <= 0) Destroy(gameObject);
+
         Move();
 
         if ((Time.time - _flappStartTime >= _flappPeriod && _distanceToWallUp > _flappAmplitude + 2) || _distanceToWallDown < 3)
@@ -59,7 +66,7 @@ public class DragonSpawn : MonoBehaviour
     {
         Vector2 vDeltaPosition = Vector3.zero;
 
-        vDeltaPosition += _speed * _direction * Time.deltaTime;
+        vDeltaPosition += _speed * Direction * Time.deltaTime;
 
         //On applique la vitesse de chutte dans la direction orthogonale à l'orientation 
         vDeltaPosition -= _orthoDirect * _fallSpeed * Time.deltaTime;
@@ -101,17 +108,11 @@ public class DragonSpawn : MonoBehaviour
         return 2 * _flappDrag * (_flappMaxSpeed - _fallSpeed) / _flappMaxSpeed;
     }
 
-    public void GetCaptured()
-    {
-        Instantiate(_explosionParticles, transform.position, Quaternion.identity, transform.parent).GetComponent<ParticleSystem>();
-        AudioManager.Instance.PlaySound(_deathSound, 1, transform.position);
-        Destroy(gameObject);
-    }
 
-
-    protected IEnumerator DieAfterAWhile()
+    public void DestroyDragon()
     {
-        yield return new WaitForSeconds(2);
+        Instantiate(_explosionParticle, transform.parent)
+            .transform.position = transform.position;
         Destroy(gameObject);
     }
 }

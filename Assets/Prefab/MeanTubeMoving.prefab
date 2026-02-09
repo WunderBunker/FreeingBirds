@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd27bd6ef38b3cb42a32da55bbe2aa09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 20
+  _speedMinMax: {x: 10, y: 20}
   _maxMovingUp: 0
   _positionInit: {x: 0, y: 0, z: 0}
   _isMovingUp: 1

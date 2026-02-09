@@ -123,7 +123,7 @@ public class MenuManager : MonoBehaviour
     {
         AudioManager.Instance.PlayClickSound();
         pToggle.transform.Find("OffImage").gameObject.SetActive(!pToggle.isOn);
-        LoadBirdMenu(pToggle);
+        if (pToggle.isOn) LoadBirdMenu(pToggle);
     }
 
     //Chargement du menu de sélection des birds

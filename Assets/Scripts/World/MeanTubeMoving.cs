@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MeanTubeMoving : MonoBehaviour
 {
-    [SerializeField] Vector2 _speddMinMax = new Vector2(15, 30);
+    [SerializeField] Vector2 _speedMinMax = new Vector2(15, 30);
     public float _speed { get; private set; }
     public float _maxMovingUp;
 
@@ -38,7 +38,7 @@ public class MeanTubeMoving : MonoBehaviour
 
     public void InitSpeed(float pAvancement)
     {
-        _speed = math.lerp(_speddMinMax.x, _speddMinMax.y, pAvancement);
+        _speed = math.lerp(_speedMinMax.x, _speedMinMax.y, pAvancement);
         float vCoef = _maxMovingUp / _tubeSize;
         _speed = math.lerp(0, _speed, vCoef);
     }

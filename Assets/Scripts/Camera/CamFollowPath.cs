@@ -12,7 +12,6 @@ public class CamFollowPath : MonoBehaviour
     [SerializeField] public float _camMaxSpeed;
     [SerializeField] float _camMaxAcceleration = 1;
     [SerializeField] public Transform RainCam;
-    private float _worldHalfWidth;
 
     public bool DontSmoothSpeed;
     float _lastCurrentSpeedOrtho;
@@ -53,13 +52,13 @@ public class CamFollowPath : MonoBehaviour
         RainCam.eulerAngles = Vector3.zero;
         _lastPLayerPosition = Vector3.zero;
         transform.position = pPosition + new Vector3(0, 0, transform.position.z - pPosition.z);
-
-        _worldHalfWidth = GetComponent<Camera>().orthographicSize / _screenRatio;
     }
 
     //Déplace la caméra vers le prochain noeud
     private void CamMove()
     {
+        float _worldHalfWidth = GetComponent<Camera>().orthographicSize / _screenRatio;
+
         //Récupération des infos sur le dernier mouvement effectué par le player
         Vector3 vDirectionPath = _playerShell.GetComponentInChildren<PlayerControl>()._directionOnPath;
         float vMagnitudeOnPath;
@@ -158,11 +157,19 @@ public class CamFollowPath : MonoBehaviour
         yield return new WaitForSeconds(vTime);
     }
 
+    public void ChangeSize(float pSize)
+    {
+        GetComponent<Camera>().orthographicSize = pSize;
+        GameObject.FindGameObjectWithTag("Map").GetComponentInChildren<OverlayParticles>()
+            .SetSize(new Vector3(pSize * 2 * Screen.width / Screen.height, pSize * 2));
+    }
+
     public void SlowChangeOrthoSize(float pSize, float pSpeed)
     {
         if (_slowChangingSize != null) StopCoroutine(_slowChangingSize);
         _slowChangingSize = StartCoroutine(SlowChangingOrthoSize(pSize, pSpeed));
     }
+
 
     public IEnumerator SlowChangingOrthoSize(float pSize, float pSpeed)
     {
@@ -170,14 +177,14 @@ public class CamFollowPath : MonoBehaviour
 
         while (vCam.orthographicSize < pSize)
         {
-            vCam.orthographicSize += Time.deltaTime * pSpeed;
+            ChangeSize(vCam.orthographicSize + Time.deltaTime * pSpeed);
             if (vCam.orthographicSize >= pSize) yield break;
 
             yield return null;
         }
         while (vCam.orthographicSize > pSize)
         {
-            vCam.orthographicSize -= Time.deltaTime * pSpeed;
+            ChangeSize(vCam.orthographicSize - Time.deltaTime * pSpeed);
             if (vCam.orthographicSize <= pSize) yield break;
 
             yield return null;

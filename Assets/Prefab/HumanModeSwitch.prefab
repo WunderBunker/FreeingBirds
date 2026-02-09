@@ -42,7 +42,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4454686901738406279}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 0.1
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -4822,9 +4822,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -819435187
+  m_SortingLayer: 2
+  m_SortingOrder: 4
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -4870,6 +4870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IntensityAnimator
   _mat: {fileID: 2100000, guid: 8630cd7730912f64b8d314a9e55815d3, type: 2}
+  _textTexture: 0
   _speed: 2
   _minMax: {x: 1, y: 2.5}
   _strength: 2
@@ -4916,7 +4917,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4780020768897643767}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 0.1
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -9686,9 +9687,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -819435187
+  m_SortingLayer: 2
+  m_SortingOrder: 4
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -9734,6 +9735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IntensityAnimator
   _mat: {fileID: 2100000, guid: e1c79667e89e5bb4a914b7c12d725bb4, type: 2}
+  _textTexture: 0
   _speed: 2
   _minMax: {x: 1, y: 2}
   _strength: 2
@@ -9854,8 +9856,8 @@ Transform:
   m_GameObject: {fileID: 8322496142255021361}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.01, y: 99.24, z: 1}
+  m_LocalPosition: {x: 0.2317, y: 0, z: 0}
+  m_LocalScale: {x: 3.9367788, y: 99.24, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2492506248184454898}
@@ -9904,11 +9906,11 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -819435187
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6a92cbc13fd189f448c656e00d03f453, type: 3}
-  m_Color: {r: 1, g: 0.95686066, b: 0, a: 0.5019608}
+  m_Color: {r: 1, g: 0.95686066, b: 0, a: 0.46666667}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9931,8 +9933,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _mat: {fileID: 2100000, guid: 810b2230322b1f245836e8d0e437af9e, type: 2}
+  _textTexture: 0
   _speed: 2
-  _minMax: {x: 1, y: 3}
+  _minMax: {x: 1, y: 4}
   _strength: 2
   _intensityProperty: _Intensity
 --- !u!1 &9011713606281604358
@@ -10031,3 +10034,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _explosionParticles: {fileID: 6796356530365551201, guid: 9a56262ad8e786b448de6dc61e96cd0b, type: 3}
+  _explosionTime: 0.5

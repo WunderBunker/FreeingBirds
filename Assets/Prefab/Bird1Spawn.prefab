@@ -5220,7 +5220,7 @@ MonoBehaviour:
   _fallSpeed: 20
   _flappMaxSpeed: 40
   _flappDrag: 0.7
-  _advancementToGain: 100
+  _advancementToGain: 50
   _explosionPaticles: {fileID: 3043968458544612393, guid: e9f0290faaeb2494cbe9c314e207a74f, type: 3}
   _deathSound: {fileID: 8300000, guid: 73e191c6c6f9dde41a6f5ed6e9e4a5be, type: 3}
   _distanceToWallUp: 0
