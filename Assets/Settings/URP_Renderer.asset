@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
   m_Name: DistortionEffect
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   settings:
     passTag: DistortionEffect
     Event: 1000
@@ -69,8 +69,8 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: -7138058384287953864}
   - {fileID: 5124520786364463087}
-  - {fileID: 821123094406322574}
-  m_RendererFeatureMap: 388c84f2b785f09ceff75b1b81f41d478e59f5961a37650b
+  - {fileID: 6839177647118431506}
+  m_RendererFeatureMap: 388c84f2b785f09ceff75b1b81f41d47123549a4d5a3e95e
   m_UseNativeRenderPass: 0
   xrSystemData: {fileID: 0}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
@@ -99,23 +99,6 @@ MonoBehaviour:
   m_DepthTextureFormat: 0
   m_AccurateGbufferNormals: 0
   m_IntermediateTextureMode: 1
---- !u!114 &821123094406322574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70d1423c45fe88e418d35adb971c5f98, type: 3}
-  m_Name: ColorblindRendererFeature
-  m_EditorClassIdentifier: Assembly-CSharp::ColorblindRendererFeature
-  m_Active: 1
-  ColorBlindMaterial: {fileID: 2100000, guid: 02db4d1e81eadfa4fa2dca2e537a5803, type: 2}
-  BlitMaterial: {fileID: 2100000, guid: 2d6e209c03fb6fd4487b131821f52ba4, type: 2}
-  Type: 0
-  RenderPassEvent: 500
 --- !u!114 &5124520786364463087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,10 +111,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08ac7e1cf77a89409bced038c95e004, type: 3}
   m_Name: GrabAllScreenRP
   m_EditorClassIdentifier: Assembly-CSharp::GrabAllScreenRP
-  m_Active: 1
+  m_Active: 0
   TextureName: _BlitScreenTexture
   RenderPassEvent: 450
   LayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
   ResolutionScale: 1
+--- !u!114 &6839177647118431506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70d1423c45fe88e418d35adb971c5f98, type: 3}
+  m_Name: ColorblindRendererFeature
+  m_EditorClassIdentifier: Assembly-CSharp::ColorblindRendererFeature
+  m_Active: 0
+  ColorBlindMaterial: {fileID: 2100000, guid: 02db4d1e81eadfa4fa2dca2e537a5803, type: 2}
+  BlitMaterial: {fileID: 2100000, guid: 2d6e209c03fb6fd4487b131821f52ba4, type: 2}
+  Type: 2
+  RenderPassEvent: 500

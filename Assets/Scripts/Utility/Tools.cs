@@ -50,7 +50,7 @@ public static class Tools
     }
 
 
-    public static T GetRenderFeature<T>()
+    public static T GetRenderFeature<T>(string pName = "")
     {
         var vUrpAsset = GraphicsSettings.currentRenderPipeline as UniversalRenderPipelineAsset;
         if (vUrpAsset != null)
@@ -61,7 +61,8 @@ public static class Tools
                 {
                     if (lFeature is T myFeature)
                     {
-                        return myFeature;
+                        if (pName == "" || pName == lFeature.name)
+                            return myFeature;
                     }
                 }
         }
@@ -87,7 +88,7 @@ public static class Tools
         foreach (var lField in vFields)
         {
             if (lField.IsStatic || (!lField.IsPublic && lField.GetCustomAttribute<SerializeField>() == null)) continue;
-           
+
             lField.SetValue(vCopy, lField.GetValue(pOriginal));
         }
         var vProps = vType.GetProperties();

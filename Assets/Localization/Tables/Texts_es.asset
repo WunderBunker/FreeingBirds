@@ -95,6 +95,18 @@ MonoBehaviour:
     m_Localized: Idiomas
     m_Metadata:
       m_Items: []
+  - m_Id: 25694695006941184
+    m_Localized: Rendimiento
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26406903802245120
+    m_Localized: Puedes eliminar todos los anuncios y apoyar mi trabajo por {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26414396934729728
+    m_Localized: Quitar anuncios
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

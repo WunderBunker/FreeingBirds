@@ -651,6 +651,11 @@ public static class SaveManager
     {
         SafeSave.SettingsSave.MotionSickness = pIsMotionSick;
     }
+    
+    public static void MajPerformances(bool pIsPerformances)
+    {
+        SafeSave.SettingsSave.Performances = pIsPerformances;
+    }
 }
 
 public class PlayerSave
@@ -674,6 +679,7 @@ public class SettingsSave
     public string Language;
     public int ColorBlindMode = 0;
     public bool MotionSickness = false;
+    public bool Performances = false;
 }
 
 [Serializable]

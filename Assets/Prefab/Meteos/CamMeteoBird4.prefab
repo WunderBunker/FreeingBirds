@@ -51,7 +51,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -4905,6 +4905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021d0410aa76fb449bd7c39016cd729f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RainActivator
+  _rainText: {fileID: 8400000, guid: b0b315b51a183e74893219a564b1abc5, type: 2}
 --- !u!114 &1944484821690795749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4969,7 +4970,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -9826,7 +9827,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:

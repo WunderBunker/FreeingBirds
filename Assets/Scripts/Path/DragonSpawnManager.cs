@@ -40,7 +40,8 @@ public class DragonSpawnManager : MonoBehaviour
         if (_spawnTimer <= 0)
         {
             _avancementCoeff = _avancementCurve.Evaluate(PartieManager.Instance._avancement / _horizonAvancementForMaxSpeed);
-            
+            _avancementCoeff = Mathf.Clamp(_avancementCoeff, 0, 1);
+
             SpawnRandomBird();
             _spawnTimer = Mathf.Lerp(_minMaxSpawnPeriod[0], _minMaxSpawnPeriod[1], _avancementCoeff);
         }

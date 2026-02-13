@@ -135,6 +135,7 @@ public class PlayerControl : MonoBehaviour
     private void UpdateSpeed()
     {
         float vCurveCoef = _speedCurve.Evaluate(PartieManager.Instance._avancement / ScoreNeededFromMaxSpeed);
+        vCurveCoef = Mathf.Clamp(vCurveCoef, 0, 1);
         _speed = Mathf.Lerp(_minMaxSpeed[0], _minMaxSpeed[1], vCurveCoef);
     }
 

@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea977a4fcbc93a47b86a452fb16ed9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minMaxSpeed: {x: 10, y: 30}
+  _minMaxSpeed: {x: 10, y: 22}
   _speedCurve:
     serializedVersion: 2
     m_Curve:

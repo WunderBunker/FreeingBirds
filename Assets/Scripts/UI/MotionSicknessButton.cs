@@ -6,7 +6,7 @@ public class MotionSicknessButton : MonoBehaviour
 
     void OnEnable()
     {
-        GetComponent<Toggle>().isOn = SaveManager.SafeSave.SettingsSave.MotionSickness;
+        GetComponent<Toggle>().isOn = SaveManager.SafeSave.SettingsSave.Performances;
     }
 
     public void OnToggleChange(bool pValue)

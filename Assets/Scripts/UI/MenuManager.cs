@@ -163,6 +163,11 @@ public class MenuManager : MonoBehaviour
         PartieManager.Instance.LoadInPartieMenu();
     }
 
+    public void LoadInDeath()
+    {
+        _inGameMenu.SetActive(false);
+    }
+
     public void ChooseBird(string pBirdId)
     {
         Bird vNewBird = GetBird(pBirdId);

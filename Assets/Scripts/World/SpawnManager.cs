@@ -99,6 +99,8 @@ public class SpawnManager : MonoBehaviour
         //On prend comme référence le segment A pour délimiter les sections sur lesquelles faire spawn des items
         int[] vSpawnItems = new int[vTubeTypesOnB.Length];
 
+        _avancement = Mathf.Clamp(PartieManager.Instance._avancement / _horizonAvancementForMaxSpawn, 0, 1);
+
         //On détermine ici de manière aléatoire quelles sections doivent spawner
         GetRandomTubes(ref vTubeTypesOnA);
         GetRandomTubes(ref vTubeTypesOnB);
@@ -148,8 +150,6 @@ public class SpawnManager : MonoBehaviour
 
     private void GetRandomTubes(ref int[] pTubeTypes)
     {
-        _avancement = PartieManager.Instance._avancement / _horizonAvancementForMaxSpawn;
-
         Random vRan = new Random();
         int vRandomValue;
         float vValueForTube = Mathf.Lerp(_valuesForTube[0], _valuesForTube[1], _avancement);
@@ -170,11 +170,9 @@ public class SpawnManager : MonoBehaviour
 
     private void GetRandomItems(ref int[] pTypeItem)
     {
-        float vAvancementProportionnel = PartieManager.Instance._avancement / _horizonAvancementForMaxSpawn;
-
         Random vRanItem = new Random();
         int vRandomValue;
-        float vValueForDollarBill = Mathf.Lerp(_valuesForDollarBill[0], _valuesForDollarBill[1], vAvancementProportionnel);
+        float vValueForDollarBill = Mathf.Lerp(_valuesForDollarBill[0], _valuesForDollarBill[1], _avancement);
 
         for (int lCptSectionInA = 0; lCptSectionInA < pTypeItem.Length; lCptSectionInA++)
         {

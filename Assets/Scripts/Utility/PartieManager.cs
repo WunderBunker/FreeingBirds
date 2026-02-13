@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System;
 using UnityEngine.Localization.Settings;
+using UnityEngine.Rendering.Universal;
 
 public class PartieManager : MonoBehaviour
 {
@@ -93,6 +94,7 @@ public class PartieManager : MonoBehaviour
         StartCoroutine(ChangeLocale(vSettings.Language));
         ChangeColorBlindMode(vSettings.ColorBlindMode);
         ChangeMotionSickness(vSettings.MotionSickness);
+        ChangePerformances(vSettings.Performances);
     }
 
     private void InitialiserScene()
@@ -175,9 +177,9 @@ public class PartieManager : MonoBehaviour
     public void LoadStartMenu()
     {
         _chunkScript.DeleteAllhunks();
+        _avancement = 0;
         ChangeBird(_menuManager.GetBird(SaveManager.SafeSave.SelectedBirdId));
         _pathScript.StartPath();
-        _avancement = 0;
 
         _homeScreen.SetActive(true);
         _homeScreen.GetComponent<HomeScreen>()._isRaising = true;
@@ -239,14 +241,25 @@ public class PartieManager : MonoBehaviour
     protected void ReloadPartie()
     {
         SaveManager.MajScore(SaveManager.SafeSave.SelectedBirdId, _avancement);
+        
+        Time.timeScale = 0;
 
-        if (!ModeDebug.Contains(DebugModes.MoveAlone))
+        _menuManager.transform.Find("LoadingAd").gameObject.SetActive(true);
+
+        Action<bool> aAfterAd = (bool pGotAd) =>
         {
-            //On repasse tous les menus en actif pour pouvoir les retrouver après reload
-            GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("BlackScreen").gameObject.SetActive(true);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            _mustReloadAfterDeath = true;
-        }
+            _menuManager.transform.Find("LoadingAd").gameObject.SetActive(false);
+            Time.timeScale = 1;
+            if (!ModeDebug.Contains(DebugModes.MoveAlone))
+            {
+                //On repasse tous les menus en actif pour pouvoir les retrouver après reload
+                GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("BlackScreen").gameObject.SetActive(true);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                _mustReloadAfterDeath = true;
+            }
+        };
+
+        AdManager.Instance.RequestIntersticeIfNeeded(aAfterAd);
     }
 
     //Maj de l'avancmeent de la partie en cours
@@ -291,6 +304,8 @@ public class PartieManager : MonoBehaviour
 
         ChangeState(PartieState.PlayerIsDying);
 
+        _menuManager.LoadInDeath();
+
         _noiseScreen.SetActive(true);
         _noiseScreen.GetComponent<NoiseScreen>()._isAppearing = true;
         yield return new WaitForSeconds(pDeathTime);
@@ -308,6 +323,15 @@ public class PartieManager : MonoBehaviour
 
     public void ChangeColorBlindMode(int pType)
     {
+        if (SaveManager.SafeSave.SettingsSave.Performances) return;
+
+        if (pType == 0)
+        {
+            _colorBlindRF.SetActive(false);
+            return;
+        }
+        else _colorBlindRF.SetActive(true);
+
         _colorBlindRF.Type = pType;
         SaveManager.MajColorBlindMode(pType);
     }
@@ -317,6 +341,14 @@ public class PartieManager : MonoBehaviour
         SaveManager.MajMotionSick(pValue);
         _menuManager.transform.Find("InGameMenu").Find("Reticule").gameObject.SetActive(pValue);
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CamFollowPath>().DontSmoothSpeed = pValue;
+    }
+
+    public void ChangePerformances(bool pValue)
+    {
+        SaveManager.MajPerformances(pValue);
+
+        if (FindAnyObjectByType<RainActivator>() is { } lActivator) lActivator.Activate(!pValue);
+        if (SaveManager.SafeSave.SettingsSave.ColorBlindMode != 0) _colorBlindRF.SetActive(!pValue);
     }
 }
 
