@@ -96,15 +96,12 @@ public class SpawnManager : MonoBehaviour
         float vLgB = Vector2.Distance(pStartEndOnB[1], pStartEndOnB[0]);
         int[] vTubeTypesOnB = new int[Mathf.RoundToInt(vLgB / (_meanTubeSize.x + _tubeSpacing))];
 
-        //On prend comme référence le segment A pour délimiter les sections sur lesquelles faire spawn des items
-        int[] vSpawnItems = new int[vTubeTypesOnB.Length];
-
         _avancement = Mathf.Clamp(PartieManager.Instance._avancement / _horizonAvancementForMaxSpawn, 0, 1);
 
         //On détermine ici de manière aléatoire quelles sections doivent spawner
         GetRandomTubes(ref vTubeTypesOnA);
         GetRandomTubes(ref vTubeTypesOnB);
-        GetRandomItems(ref vSpawnItems);
+        bool vSpawnDollar = GetRandomDollar();
 
         _tubeDistanceLimitFromWall = (_tubeDistanceLimitFromWall == 0) ? (pDistancePathToWall * 2) : _tubeDistanceLimitFromWall;
 
@@ -135,13 +132,8 @@ public class SpawnManager : MonoBehaviour
 
         Physics2D.SyncTransforms();
 
-        for (int lCptSection = 0; lCptSection < vSpawnItems.Length; lCptSection++)
-            if (vSpawnItems[lCptSection] > 0)
-            {
-                Vector2 lStart = pStartEndOnB[0] + (vSection + vSpacing) * lCptSection + vSpacing;
-                Vector2 lEnd = lStart + vSection;
-                SpawnItemInSection(lStart, lEnd, pDistancePathToWall);
-            }
+        if (vSpawnDollar) SpawnItemInSection(pStartEndOnB[0], pStartEndOnB[1], pDistancePathToWall);
+
 
         //Spawn d'un switch smode humain
         if (_currentBird == "Bird5" && _playerShell.GetComponentInChildren<Human>() is { } lHumman && lHumman._mustSpawnSwitch)
@@ -168,17 +160,12 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    private void GetRandomItems(ref int[] pTypeItem)
+    private bool GetRandomDollar()
     {
-        Random vRanItem = new Random();
-        int vRandomValue;
+        Random vRan = new Random();
         float vValueForDollarBill = Mathf.Lerp(_valuesForDollarBill[0], _valuesForDollarBill[1], _avancement);
-
-        for (int lCptSectionInA = 0; lCptSectionInA < pTypeItem.Length; lCptSectionInA++)
-        {
-            vRandomValue = vRanItem.Next(1, 100);
-            pTypeItem[lCptSectionInA] = (vRandomValue <= vValueForDollarBill) ? 1 : 0;
-        }
+        int vRandomValue = vRan.Next(1, 100);
+        return vRandomValue <= vValueForDollarBill;
     }
 
     //Spawn d'un tube sur un mur

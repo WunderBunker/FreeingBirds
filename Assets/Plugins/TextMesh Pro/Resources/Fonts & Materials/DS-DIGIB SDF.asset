@@ -102,7 +102,7 @@ Material:
     - _FaceColor: {r: 1.7207952, g: 1.7207952, b: 1.7207952, a: 1}
     - _GlowColor: {r: 2.1185474, g: 2.1185474, b: 0, a: 1}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
-    - _OutlineColor: {r: 1.6158024, g: 0.77243966, b: 0, a: 1}
+    - _OutlineColor: {r: 1.6337843, g: 0.779324, b: 0, a: 1}
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}

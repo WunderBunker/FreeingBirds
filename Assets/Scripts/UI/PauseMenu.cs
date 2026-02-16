@@ -16,6 +16,8 @@ public class PauseMenu : MonoBehaviour, IChildEnabler
         AudioManager.Instance.PlayClickSound();
         Time.timeScale = 1;
         transform.Find("Book").GetComponent<BookImage>().Quit();
+        transform.GetComponentInChildren<ColorBlindMenu>()?.Quit();
+        transform.GetComponentInChildren<LanguageMenu>()?.Quit();
     }
 
     public void LaunchLanguageMenu()

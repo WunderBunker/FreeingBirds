@@ -36,6 +36,10 @@ public class AdManager : MonoBehaviour
 
     void Start()
     {
+        // Active la Test Suite officielle IronSource
+        Debug.Log("LEVELPLAY TEST MODE ENABLED");
+        LevelPlay.SetMetaData("is_test_suite", "enable");
+
         // Register OnInitFailed and OnInitSuccess listeners
         LevelPlay.OnInitSuccess += OnSdkInitializationCompleted;
         LevelPlay.OnInitFailed += OnSdkInitializationFailed;

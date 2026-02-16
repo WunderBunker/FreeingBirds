@@ -171,11 +171,9 @@ public class PlayerControl : MonoBehaviour
             //On ajoute l'avancée sur le chemin
             vDeltaPosition += _directionOnPath * _speed * vDeltaTime;
 
-            if (vSave.SelectedBirdId != "Bird3")
-            {
-                float vDeltaOnPath = Vector3.Project(vDeltaPosition, _directionOnPath).magnitude;
-                PartieManager.Instance.AddToAvancement(vDeltaOnPath);
-            }
+            float vDeltaOnPath = Vector3.Project(vDeltaPosition, _directionOnPath).magnitude;
+            if (vSave.SelectedBirdId == "Bird3") vDeltaOnPath /= 3;
+            PartieManager.Instance.AddToAvancement(vDeltaOnPath);
         }
         _playerShellTransform.position += (Vector3)vDeltaPosition;
         //Maj de l'orientation du player
