@@ -108,6 +108,10 @@ MonoBehaviour:
     m_Localized: "Supprimer les publicit\xE9s"
     m_Metadata:
       m_Items: []
+  - m_Id: 30769877828513792
+    m_Localized: "Politique de Confidentialit\xE9"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

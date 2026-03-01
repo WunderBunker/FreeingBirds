@@ -8,7 +8,6 @@ public class NoAdsButton : MonoBehaviour
     {
         Action<bool> aGotPurchase = (pAdsRemoved) =>
         {
-            Debug.Log("vho NoAdsButton pAdsRemoved : " + pAdsRemoved);
             if (pAdsRemoved) gameObject.SetActive(false);
         };
 

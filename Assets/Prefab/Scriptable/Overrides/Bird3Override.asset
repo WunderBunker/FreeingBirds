@@ -27,8 +27,8 @@ MonoBehaviour:
   ValuesForMovingTube: 1e0000003c000000
   ValuesForFlyingTube: 0700000014000000
   ValuesForFlyingTubeSharpnel: 050000000a000000
-  ValuesForDollarBill: 1e0000000f000000
-  HorizonAvancementForMaxSpawn: 2000
+  ValuesForDollarBill: 280000000f000000
+  HorizonAvancementForMaxSpawn: 700
   PlayerSizeCoeff: 0
   PrctDecalagePlayerCam: 0.3
   CamDistanceForMaxSpeed: 5

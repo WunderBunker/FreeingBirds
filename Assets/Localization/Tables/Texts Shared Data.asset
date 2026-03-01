@@ -103,6 +103,10 @@ MonoBehaviour:
     m_Key: RemoveAds
     m_Metadata:
       m_Items: []
+  - m_Id: 30769877828513792
+    m_Key: PrivacyPolicy
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

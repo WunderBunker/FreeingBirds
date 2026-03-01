@@ -55,7 +55,6 @@ public class AdManager : MonoBehaviour
 
     public void RequestIntersticeIfNeeded(Action<bool> pCallBack = null)
     {
-        Debug.Log("vho _IAPIsInit : " + _IAPIsInit + " _adsRemoved  : " + _adsRemoved + " _timer : " + _timer);
         if (_IAPIsInit && !_adsRemoved)
             if (_timer < _timeBtwAds)
             {
@@ -64,7 +63,6 @@ public class AdManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("vho add needed");
                 _timer = 0;
                 RequestInterstice(pCallBack);
             }

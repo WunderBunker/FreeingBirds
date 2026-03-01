@@ -5,6 +5,7 @@ using UnityEngine;
 public class LogSaver : MonoBehaviour
 {
     private string _logFilePath;
+    private string _logWaiting;
 
     void Awake()
     {
@@ -22,8 +23,15 @@ public class LogSaver : MonoBehaviour
         string vLogEntry = $"{DateTime.Now} [{pType}] {pLogString}\n";
 
         if (pType == LogType.Error || pType == LogType.Exception)
-            vLogEntry += pStackTrace + "\n";
+            _logWaiting = vLogEntry + pStackTrace + "\n";
+    }
 
-        File.AppendAllText(_logFilePath, vLogEntry);
+    void FixedUpdate()
+    {
+        if (_logWaiting != "")
+        {
+            File.AppendAllText(_logFilePath, _logWaiting);
+            _logWaiting = "";
+        }
     }
 }

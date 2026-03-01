@@ -107,6 +107,10 @@ MonoBehaviour:
     m_Localized: Quitar anuncios
     m_Metadata:
       m_Items: []
+  - m_Id: 30769877828513792
+    m_Localized: "pol\xEDtica de privacidad"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

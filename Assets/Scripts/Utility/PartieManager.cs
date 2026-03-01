@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System;
 using UnityEngine.Localization.Settings;
-using UnityEngine.Rendering.Universal;
 
 public class PartieManager : MonoBehaviour
 {
@@ -67,11 +66,14 @@ public class PartieManager : MonoBehaviour
     {
         Action<PlayerSave> aGetSave = (lResult) =>
         {
+            Debug.Log("vho PartieManager aGetSave");
             _menuManager.transform.Find("LoadingSaveText").gameObject.SetActive(false);
             ChangeState(PartieState.GameDataIsReady);
         };
+
         if (SaveManager._save == null)
         {
+            Debug.Log("vho PartieManager SaveManager._save == null");
             _menuManager.transform.Find("LoadingSaveText").gameObject.SetActive(true);
             StartCoroutine(SaveManager.LoadPlayerSave(aGetSave));
         }
@@ -241,7 +243,7 @@ public class PartieManager : MonoBehaviour
     protected void ReloadPartie()
     {
         SaveManager.MajScore(SaveManager.SafeSave.SelectedBirdId, _avancement);
-        
+
         Time.timeScale = 0;
 
         _menuManager.transform.Find("LoadingAd").gameObject.SetActive(true);

@@ -108,6 +108,10 @@ MonoBehaviour:
     m_Localized: "Remover an\xFAncios"
     m_Metadata:
       m_Items: []
+  - m_Id: 30769877828513792
+    m_Localized: "pol\xEDtica de Privacidade"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
