@@ -92,3 +92,5 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+Assets/Graphic/Textures/Player/Bird2Down.png
+Assets/Graphic/Textures/Player/Bird2Up.png
