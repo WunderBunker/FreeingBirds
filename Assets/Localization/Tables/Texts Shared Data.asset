@@ -107,6 +107,46 @@ MonoBehaviour:
     m_Key: PrivacyPolicy
     m_Metadata:
       m_Items: []
+  - m_Id: 33998422352605184
+    m_Key: AchievementsCount
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33998862976823296
+    m_Key: TheBird
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33999523428708352
+    m_Key: TheCamel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33999535713824768
+    m_Key: TheLion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33999547642425344
+    m_Key: TheDragon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33999570362970112
+    m_Key: TheHuman
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33999648905506816
+    m_Key: FreeThe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33999717117472768
+    m_Key: ReachWith
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34000194408296448
+    m_Key: PassAllHuman
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35147179748241408
+    m_Key: YourScore
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

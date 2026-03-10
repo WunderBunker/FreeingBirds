@@ -106,7 +106,7 @@ public class MenuManager : MonoBehaviour
         _birdMenu.SetActive(false);
         _startMenu.SetActive(false);
         _inGameMenu.SetActive(false);
-        CanvasMeteo?.SetActive(false);
+        if (CanvasMeteo != null) CanvasMeteo.SetActive(false);
 
         _homeMenu.transform.Find("HighScorePrompt").GetComponent<TextMeshProUGUI>().text
             = SaveManager.SafeSave.HighScores[SaveManager.SafeSave.SelectedBirdId].ToString("0");
@@ -237,4 +237,15 @@ public class MenuManager : MonoBehaviour
         if (vPannel.activeSelf) vPannel.GetComponent<LeaderBoardPannel>().OnQuit();
         else vPannel.SetActive(true);
     }
+
+    public void LoadAchievementPannel()
+    {
+        if (!_homeMenu.activeSelf) return;
+
+        GameObject vPannel = _homeMenu.transform.Find("AchievementsPanel").gameObject;
+
+        if (vPannel.activeSelf) vPannel.GetComponent<AchievementsPanel>().OnQuit();
+        else vPannel.SetActive(true);
+    }
+
 }

@@ -113,6 +113,46 @@ MonoBehaviour:
     m_Localized: PrivacyPolicy
     m_Metadata:
       m_Items: []
+  - m_Id: 33998422352605184
+    m_Localized: 'Achievements : {0}/{1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33998862976823296
+    m_Localized: the Bird
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33999523428708352
+    m_Localized: the Camel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33999535713824768
+    m_Localized: the Lion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33999547642425344
+    m_Localized: the Dragon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33999570362970112
+    m_Localized: the Human
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33999648905506816
+    m_Localized: Free {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33999717117472768
+    m_Localized: Reach {0} with {1}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34000194408296448
+    m_Localized: 'Pass all the human''s modes '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35147179748241408
+    m_Localized: 'Your score : {0}'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

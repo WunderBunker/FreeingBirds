@@ -25,11 +25,11 @@ public class IntroCanvas : MonoBehaviour
         _startTime = Time.time;
 
         if (SaveManager._save == null)
-            StartCoroutine(SaveManager.LoadPlayerSave((PlayerSave pCB) =>
+            CoroutineRunner.Instance.StartCoroutine(SaveManager.LoadPlayerSave((PlayerSave pCB) =>
             {
                 _saveLoadingEnded = true;
                 transform.Find("LoadingSaveText").gameObject.SetActive(false);
-            }));
+            }, gameObject));
     }
 
     // Update is called once per frame
@@ -62,14 +62,12 @@ public class IntroCanvas : MonoBehaviour
 
         if (_forceGoToNextScene ||
             (_mustGoToNextScene && _saveLoadingEnded))
-        {
-            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
             SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
-        }
     }
 
     public void OnBGClick()
     {
         _forceGoToNextScene = true;
     }
+
 }

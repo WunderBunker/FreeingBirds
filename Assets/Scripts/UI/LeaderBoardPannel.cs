@@ -20,7 +20,6 @@ public class LeaderBoardPannel : MonoBehaviour, IChildEnabler
         _rankLoc.RefreshString();
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     [Obsolete]
     void OnEnable()
     {
@@ -88,6 +87,7 @@ public class LeaderBoardPannel : MonoBehaviour, IChildEnabler
     {
         AudioManager.Instance.PlayClickSound();
         transform.Find("Book").GetComponent<BookImage>().Quit();
+        transform.parent.Find("ConnectionPannel").GetComponent<ConnectionPannel>().Quit();
         transform.parent.Find("LoadingSymbol").gameObject.SetActive(false);
     }
 

@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour, IChildEnabler
 {
@@ -35,7 +36,7 @@ public class PauseMenu : MonoBehaviour, IChildEnabler
     public void OnBackToMenu()
     {
         Time.timeScale = 1;
-        SaveManager.MajScore(SaveManager.SafeSave.SelectedBirdId, PartieManager.Instance._avancement);
+        PartieManager.Instance.MajScore();
         GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<MenuManager>().ChooseHomeMenu();
         OnQuit();
     }
@@ -48,6 +49,9 @@ public class PauseMenu : MonoBehaviour, IChildEnabler
                 transform.GetChild(i).gameObject.SetActive(pActive);
         transform.Find("HomeButton").gameObject.SetActive
             (!GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("HomeMenu").gameObject.activeSelf);
+
+        if (SaveManager.SafeSave.SettingsSave.Performances)
+            transform.Find("ColorBlindButton").GetComponent<Button>().interactable = false;
     }
 }
 

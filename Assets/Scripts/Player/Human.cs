@@ -20,6 +20,8 @@ public class Human : MonoBehaviour
 
     Transform _itemsTransform;
 
+    bool _hasPassBirdOnce;
+
     void Awake()
     {
         vHumanControl = GetComponent<PlayerControl>();
@@ -108,6 +110,8 @@ public class Human : MonoBehaviour
         {
             case Mode.Bird:
                 aSwitchMode(0);
+                if (_hasPassBirdOnce) AchievementsManager.Instance.AllHumanModes();
+                _hasPassBirdOnce = true;
                 break;
             case Mode.Camel:
                 aSwitchMode(1);

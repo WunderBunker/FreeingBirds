@@ -8,6 +8,7 @@ using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 using GooglePlayGames.BasicApi.SavedGame;
 using Newtonsoft.Json;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 
@@ -35,7 +36,7 @@ public static class SaveManager
     static LeaderBoard _currentLeaderBoard;
     static Dictionary<string, LeaderBoard> _localLeaderBoards;
     const string SAVE_NAME = "save";
-    public const float _maxLoadingTime = 15;
+    public const float _maxLoadingTime = 5;
 
     public static string DebugString { get; internal set; }
 
@@ -45,13 +46,13 @@ public static class SaveManager
     static bool _isLoadingPlayerSave;
     static bool _isLoadingBoardSave;
 
-    static List<Action<PlayerSave>> _playerSaveLoadCB = new();
+    static List<(Action<PlayerSave>, GameObject)> _playerSaveLoadCB = new();
 
     //Chargement de la sauvegarde du joueur (Highscore, oboles, comestiques, items achetés...)
-    public static IEnumerator LoadPlayerSave(Action<PlayerSave> pCB)
+    public static IEnumerator LoadPlayerSave(Action<PlayerSave> pCB, GameObject pCaller)
     {
         if (pCB != null)
-            _playerSaveLoadCB.Add(pCB);
+            _playerSaveLoadCB.Add((pCB, pCaller));
 
         if (_isLoadingPlayerSave)
             yield break;
@@ -78,7 +79,6 @@ public static class SaveManager
             if (Time.unscaledDeltaTime < 0.5f)
                 vTimer += Time.deltaTime;
         }
-
         if (_save == null)
         {
             Debug.Log("Fail to load player save");
@@ -94,7 +94,7 @@ public static class SaveManager
         }
 
         foreach (var lCB in _playerSaveLoadCB)
-            lCB?.Invoke(SafeSave);
+            if (lCB.Item2 != null) lCB.Item1?.Invoke(SafeSave);
 
         _playerSaveLoadCB.Clear();
         _isLoadingPlayerSave = false;
@@ -184,16 +184,6 @@ public static class SaveManager
 #else
         SaveLeaderBoards_Local(pCB);
 #endif
-    }
-
-    static LeaderBoard GetNewLeaderBoard()
-    {
-        string vCurrentBird = SafeSave.SelectedBirdId;
-        _currentLeaderBoard = new LeaderBoard()
-        {
-            Scores = { { GetPlayerId(), SafeSave.HighScores[vCurrentBird] } },
-        };
-        return _currentLeaderBoard;
     }
 
     public static string GetPlayerId()
@@ -520,34 +510,6 @@ public static class SaveManager
         if (_localLeaderBoards != null) _currentLeaderBoard = _localLeaderBoards[SafeSave.SelectedBirdId];
     }
 
-    static Dictionary<string, LeaderBoard> GetNewLeaderBoards()
-    {
-        var vLeaderBoards = new Dictionary<string, LeaderBoard>
-        {
-            {
-                "Bird1",
-                new LeaderBoard() { Scores = { { GetPlayerId(), SafeSave.HighScores["Bird1"] } } }
-            },
-            {
-                "Bird2",
-                new LeaderBoard() { Scores = { { GetPlayerId(), SafeSave.HighScores["Bird2"] } } }
-            },
-            {
-                "Bird3",
-                new LeaderBoard() { Scores = { { GetPlayerId(), SafeSave.HighScores["Bird3"] } } }
-            },
-            {
-                "Bird4",
-                new LeaderBoard() { Scores = { { GetPlayerId(), SafeSave.HighScores["Bird4"] } } }
-            },
-            {
-                "Bird5",
-                new LeaderBoard() { Scores = { { GetPlayerId(), SafeSave.HighScores["Bird5"] } } }
-            },
-        };
-        return vLeaderBoards;
-    }
-
     static void SavePlayerSave_Local()
     {
         string vJsonFile = JsonConvert.SerializeObject(SafeSave);
@@ -617,6 +579,7 @@ public static class SaveManager
                     pSave.HighScores.Add(lEntry.Key, lEntry.Value);
         if (pSave.SelectedBirdId == "")
             pSave.SelectedBirdId = "Bird1";
+
         return pSave;
     }
 
@@ -651,10 +614,17 @@ public static class SaveManager
     {
         SafeSave.SettingsSave.MotionSickness = pIsMotionSick;
     }
-    
+
     public static void MajPerformances(bool pIsPerformances)
     {
         SafeSave.SettingsSave.Performances = pIsPerformances;
+    }
+
+    public static bool AddGottenAchievement(int pId)
+    {
+        if (SafeSave.GottenAchievement.Contains(pId)) return false;
+        SafeSave.GottenAchievement.Add(pId);
+        return true;
     }
 }
 
@@ -666,6 +636,8 @@ public class PlayerSave
     public Dictionary<string, float> HighScores { get; set; } = SaveManager.GetHighScoreDefault();
 
     public string SelectedBirdId { get; set; } = "";
+
+    public List<int> GottenAchievement = new();
 }
 
 [Serializable]

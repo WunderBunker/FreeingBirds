@@ -67,7 +67,7 @@ public class AudioManager : MonoBehaviour
         };
 
         if (SaveManager._save == null)
-            StartCoroutine(SaveManager.LoadPlayerSave(aGetSave));
+            StartCoroutine(SaveManager.LoadPlayerSave(aGetSave, gameObject));
         else aGetSave.Invoke(SaveManager._save);
     }
 

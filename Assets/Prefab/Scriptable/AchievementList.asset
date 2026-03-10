@@ -1,0 +1,428 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a334fab47b06a7448206ce8edd710aa, type: 3}
+  m_Name: AchievementList
+  m_EditorClassIdentifier: Assembly-CSharp::AchievmentList
+  List:
+  - Name: Free the Camel
+    LocalText:
+      m_TableReference:
+        m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+      m_TableEntryReference:
+        m_KeyId: 33999648905506816
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    LocalArg:
+    - Index: 0
+      String: 
+      LocalizedString:
+        m_TableReference:
+          m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+        m_TableEntryReference:
+          m_KeyId: 33999523428708352
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+    Id: 0
+  - Name: Free the Lion
+    LocalText:
+      m_TableReference:
+        m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+      m_TableEntryReference:
+        m_KeyId: 33999648905506816
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    LocalArg:
+    - Index: 0
+      String: 
+      LocalizedString:
+        m_TableReference:
+          m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+        m_TableEntryReference:
+          m_KeyId: 33999535713824768
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+    Id: 1
+  - Name: Free the Dragon
+    LocalText:
+      m_TableReference:
+        m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+      m_TableEntryReference:
+        m_KeyId: 33999648905506816
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    LocalArg:
+    - Index: 0
+      String: 
+      LocalizedString:
+        m_TableReference:
+          m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+        m_TableEntryReference:
+          m_KeyId: 33999547642425344
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+    Id: 2
+  - Name: Free the Human
+    LocalText:
+      m_TableReference:
+        m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+      m_TableEntryReference:
+        m_KeyId: 33999648905506816
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    LocalArg:
+    - Index: 0
+      String: 
+      LocalizedString:
+        m_TableReference:
+          m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+        m_TableEntryReference:
+          m_KeyId: 33999547642425344
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+    Id: 3
+  - Name: 'Pass all the human''s modes '
+    LocalText:
+      m_TableReference:
+        m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+      m_TableEntryReference:
+        m_KeyId: 34000194408296448
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    LocalArg: []
+    Id: 4
+  - Name: Reach 2000 with the Bird
+    LocalText:
+      m_TableReference:
+        m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+      m_TableEntryReference:
+        m_KeyId: 33999717117472768
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    LocalArg:
+    - Index: 0
+      String: 2000
+      LocalizedString:
+        m_TableReference:
+          m_TableCollectionName: 
+        m_TableEntryReference:
+          m_KeyId: 0
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+    - Index: 1
+      String: 
+      LocalizedString:
+        m_TableReference:
+          m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+        m_TableEntryReference:
+          m_KeyId: 33998862976823296
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+    Id: 5
+  - Name: Reach 2000 with the Camel
+    LocalText:
+      m_TableReference:
+        m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+      m_TableEntryReference:
+        m_KeyId: 33999717117472768
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    LocalArg:
+    - Index: 0
+      String: 2000
+      LocalizedString:
+        m_TableReference:
+          m_TableCollectionName: 
+        m_TableEntryReference:
+          m_KeyId: 0
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+    - Index: 1
+      String: 
+      LocalizedString:
+        m_TableReference:
+          m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+        m_TableEntryReference:
+          m_KeyId: 33999523428708352
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+    Id: 6
+  - Name: Reach 2000 with the Lion
+    LocalText:
+      m_TableReference:
+        m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+      m_TableEntryReference:
+        m_KeyId: 33999717117472768
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    LocalArg:
+    - Index: 0
+      String: 2000
+      LocalizedString:
+        m_TableReference:
+          m_TableCollectionName: 
+        m_TableEntryReference:
+          m_KeyId: 0
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+    - Index: 1
+      String: 
+      LocalizedString:
+        m_TableReference:
+          m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+        m_TableEntryReference:
+          m_KeyId: 33999535713824768
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+    Id: 7
+  - Name: Reach 2000 with the Dragon
+    LocalText:
+      m_TableReference:
+        m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+      m_TableEntryReference:
+        m_KeyId: 33999717117472768
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    LocalArg:
+    - Index: 0
+      String: 2000
+      LocalizedString:
+        m_TableReference:
+          m_TableCollectionName: 
+        m_TableEntryReference:
+          m_KeyId: 0
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+    - Index: 1
+      String: 
+      LocalizedString:
+        m_TableReference:
+          m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+        m_TableEntryReference:
+          m_KeyId: 33999547642425344
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+    Id: 8
+  - Name: Reach 2000 with the Human
+    LocalText:
+      m_TableReference:
+        m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+      m_TableEntryReference:
+        m_KeyId: 33999717117472768
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    LocalArg:
+    - Index: 0
+      String: 2000
+      LocalizedString:
+        m_TableReference:
+          m_TableCollectionName: 
+        m_TableEntryReference:
+          m_KeyId: 0
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+    - Index: 1
+      String: 
+      LocalizedString:
+        m_TableReference:
+          m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+        m_TableEntryReference:
+          m_KeyId: 33999570362970112
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+    Id: 9
+  - Name: Reach 3000 with the Bird
+    LocalText:
+      m_TableReference:
+        m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+      m_TableEntryReference:
+        m_KeyId: 33999717117472768
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    LocalArg:
+    - Index: 0
+      String: 3000
+      LocalizedString:
+        m_TableReference:
+          m_TableCollectionName: 
+        m_TableEntryReference:
+          m_KeyId: 0
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+    - Index: 1
+      String: 
+      LocalizedString:
+        m_TableReference:
+          m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+        m_TableEntryReference:
+          m_KeyId: 33998862976823296
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+    Id: 10
+  - Name: Reach 3000 with the Camel
+    LocalText:
+      m_TableReference:
+        m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+      m_TableEntryReference:
+        m_KeyId: 33999717117472768
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    LocalArg:
+    - Index: 0
+      String: 3000
+      LocalizedString:
+        m_TableReference:
+          m_TableCollectionName: 
+        m_TableEntryReference:
+          m_KeyId: 0
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+    - Index: 1
+      String: 
+      LocalizedString:
+        m_TableReference:
+          m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+        m_TableEntryReference:
+          m_KeyId: 33999523428708352
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+    Id: 11
+  - Name: Reach 3000 with the Lion
+    LocalText:
+      m_TableReference:
+        m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+      m_TableEntryReference:
+        m_KeyId: 33999717117472768
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    LocalArg:
+    - Index: 0
+      String: 3000
+      LocalizedString:
+        m_TableReference:
+          m_TableCollectionName: 
+        m_TableEntryReference:
+          m_KeyId: 0
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+    - Index: 1
+      String: 
+      LocalizedString:
+        m_TableReference:
+          m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+        m_TableEntryReference:
+          m_KeyId: 33999535713824768
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+    Id: 12
+  - Name: Reach 3000 with the Dragon
+    LocalText:
+      m_TableReference:
+        m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+      m_TableEntryReference:
+        m_KeyId: 33999717117472768
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    LocalArg:
+    - Index: 0
+      String: 3000
+      LocalizedString:
+        m_TableReference:
+          m_TableCollectionName: 
+        m_TableEntryReference:
+          m_KeyId: 0
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+    - Index: 1
+      String: 
+      LocalizedString:
+        m_TableReference:
+          m_TableCollectionName: GUID:d2fa2e82970ffc64ab4cb044c19929bf
+        m_TableEntryReference:
+          m_KeyId: 33999547642425344
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+    Id: 13
+  references:
+    version: 2
+    RefIds: []

@@ -12,7 +12,7 @@ public class InputManager : MonoBehaviour
     {
         _mainInput = new MainInputs();
 
-        _camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        _camera = GameObject.FindGameObjectWithTag("MainCamera").transform.Find("UICamera").GetComponent<Camera>();
         _homeButton = GameObject.FindGameObjectWithTag("HomeButton").GetComponent<RectTransform>();
         _playerShellScript = GameObject.FindGameObjectWithTag("PlayerShell").GetComponent<PlayerShellscript>();
     }

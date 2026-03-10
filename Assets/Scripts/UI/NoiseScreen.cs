@@ -5,15 +5,14 @@ public class NoiseScreen : MonoBehaviour
 {
     [SerializeField] float _speed = 0.3f;
 
-    //true - Raising ; false - lowering ;
-    public bool _isAppearing;
+    bool _isAppearing;
 
     void OnEnable()
     {
         Color vNewColor = gameObject.GetComponent<Image>().color;
         vNewColor = new Vector4(vNewColor.r, vNewColor.g, vNewColor.b, 0);
-
         gameObject.GetComponent<Image>().color = vNewColor;
+        _isAppearing = true;
     }
 
     void Update()

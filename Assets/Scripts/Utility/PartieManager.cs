@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System;
 using UnityEngine.Localization.Settings;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
 
 public class PartieManager : MonoBehaviour
 {
@@ -43,7 +45,6 @@ public class PartieManager : MonoBehaviour
     //Compteur  pour les sky background, leur sert lorsqu'ils doivent se détruire les uns les autres 
     static int _skyCompteur;
 
-    bool _mustReloadAfterDeath;
     GameObject _camMeteo;
     GameObject _mapMeteo;
     ColorblindRendererFeature _colorBlindRF;
@@ -58,36 +59,28 @@ public class PartieManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
 
-        SceneManager.sceneLoaded += OnSceneLoaded;
-
         _colorBlindRF = Tools.GetRenderFeature<ColorblindRendererFeature>();
+
+        GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("BlackScreen").gameObject.SetActive(true);
+
+        _menuManager = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<MenuManager>();
+        _playerShell = GameObject.FindGameObjectWithTag("PlayerShell").GetComponent<PlayerShellscript>();
     }
+    
     void Start()
     {
         Action<PlayerSave> aGetSave = (lResult) =>
         {
-            Debug.Log("vho PartieManager aGetSave");
             _menuManager.transform.Find("LoadingSaveText").gameObject.SetActive(false);
             ChangeState(PartieState.GameDataIsReady);
         };
 
         if (SaveManager._save == null)
         {
-            Debug.Log("vho PartieManager SaveManager._save == null");
             _menuManager.transform.Find("LoadingSaveText").gameObject.SetActive(true);
-            StartCoroutine(SaveManager.LoadPlayerSave(aGetSave));
+            StartCoroutine(SaveManager.LoadPlayerSave(aGetSave, gameObject));
         }
         else aGetSave.Invoke(SaveManager._save);
-    }
-
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("BlackScreen").gameObject.SetActive(true);
-
-        _menuManager = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<MenuManager>();
-        _playerShell = GameObject.FindGameObjectWithTag("PlayerShell").GetComponent<PlayerShellscript>();
-
-        if (_mustReloadAfterDeath) ChangeState(PartieState.ReloadingScene);
     }
 
     private void InitSettings()
@@ -129,12 +122,6 @@ public class PartieManager : MonoBehaviour
         _partieState = pState;
         switch (_partieState)
         {
-            case PartieState.ReloadingScene:
-                _mustReloadAfterDeath = false;
-                InitSettings();
-                InitialiserScene();
-                _menuManager.LoadStartMenu();
-                break;
             case PartieState.GameDataIsReady:
                 InitSettings();
                 InitialiserScene();
@@ -242,7 +229,7 @@ public class PartieManager : MonoBehaviour
     //Reload de la scène lorsqu'on meurt
     protected void ReloadPartie()
     {
-        SaveManager.MajScore(SaveManager.SafeSave.SelectedBirdId, _avancement);
+        MajScore();
 
         Time.timeScale = 0;
 
@@ -252,13 +239,8 @@ public class PartieManager : MonoBehaviour
         {
             _menuManager.transform.Find("LoadingAd").gameObject.SetActive(false);
             Time.timeScale = 1;
-            if (!ModeDebug.Contains(DebugModes.MoveAlone))
-            {
-                //On repasse tous les menus en actif pour pouvoir les retrouver après reload
-                GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("BlackScreen").gameObject.SetActive(true);
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                _mustReloadAfterDeath = true;
-            }
+            _menuManager.LoadStartMenu();
+            _noiseScreen.SetActive(false);
         };
 
         AdManager.Instance.RequestIntersticeIfNeeded(aAfterAd);
@@ -309,11 +291,24 @@ public class PartieManager : MonoBehaviour
         _menuManager.LoadInDeath();
 
         _noiseScreen.SetActive(true);
-        _noiseScreen.GetComponent<NoiseScreen>()._isAppearing = true;
+        _noiseScreen.SetActive(true);
+
+        LocalizedString vEndScoreLocal = _noiseScreen.transform.Find("EndScore").GetComponent<LocalizeStringEvent>().StringReference;
+        vEndScoreLocal.Arguments = new object[] { _avancement.ToString("0") };
+        vEndScoreLocal.RefreshString();
+
+        MajScore();
+
         yield return new WaitForSeconds(pDeathTime);
 
         GetInGame = null;
         ReloadPartie();
+    }
+
+    public void MajScore()
+    {
+        SaveManager.MajScore(SaveManager.SafeSave.SelectedBirdId, _avancement);
+        AchievementsManager.Instance.UpdateScoreAchievements(_avancement);
     }
 
     public IEnumerator ChangeLocale(string pLocale)
@@ -327,14 +322,13 @@ public class PartieManager : MonoBehaviour
     {
         if (SaveManager.SafeSave.SettingsSave.Performances) return;
 
-        if (pType == 0)
+        if (pType == 0) _colorBlindRF.SetActive(false);
+        else
         {
-            _colorBlindRF.SetActive(false);
-            return;
+            _colorBlindRF.SetActive(true);
+            _colorBlindRF.Type = pType;
         }
-        else _colorBlindRF.SetActive(true);
 
-        _colorBlindRF.Type = pType;
         SaveManager.MajColorBlindMode(pType);
     }
 
@@ -358,7 +352,6 @@ public enum PartieState
 {
     MustLoadSave,
     LoadingSave,
-    ReloadingScene,
     GameDataIsReady,
     LoadingHomeMenu,
     InHomenu,

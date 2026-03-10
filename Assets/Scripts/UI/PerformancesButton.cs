@@ -11,5 +11,6 @@ public class PerformancesButton : MonoBehaviour
     public void OnToggleChange(bool pValue)
     {
         PartieManager.Instance.ChangePerformances(pValue);
+        transform.parent.Find("ColorBlindButton").GetComponent<Button>().interactable = !pValue;
     }
 }

@@ -112,6 +112,46 @@ MonoBehaviour:
     m_Localized: "Politique de Confidentialit\xE9"
     m_Metadata:
       m_Items: []
+  - m_Id: 33998422352605184
+    m_Localized: "Succ\xE8s : {0}/{1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33998862976823296
+    m_Localized: l'Oiseau
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33999523428708352
+    m_Localized: le Chameau
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33999535713824768
+    m_Localized: le Lion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33999547642425344
+    m_Localized: le Dragon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33999570362970112
+    m_Localized: l'Humain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33999648905506816
+    m_Localized: "Lib\xE9rer {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33999717117472768
+    m_Localized: Atteignez {0} avec {1}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34000194408296448
+    m_Localized: Passer tous les modes de l'humain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35147179748241408
+    m_Localized: 'Votre score : {0}'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -112,6 +112,46 @@ MonoBehaviour:
     m_Localized: politica sulla riservatezza
     m_Metadata:
       m_Items: []
+  - m_Id: 33998422352605184
+    m_Localized: 'Successi : {0}/{1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33998862976823296
+    m_Localized: l'Uccello
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33999523428708352
+    m_Localized: il Cammello
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33999535713824768
+    m_Localized: il Leone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33999547642425344
+    m_Localized: il Drago
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33999570362970112
+    m_Localized: l'Umano
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33999648905506816
+    m_Localized: Rilascia {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33999717117472768
+    m_Localized: Raggiungi {0} con {1}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34000194408296448
+    m_Localized: "Supera tutte le modalit\xE0 umane"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35147179748241408
+    m_Localized: 'Il tuo punteggio: {0}'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

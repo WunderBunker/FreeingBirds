@@ -100,6 +100,8 @@ public class PlayerControl : MonoBehaviour
         _directionOnPath = (_nextPosition - _lastPosition).normalized;
         _targetDirectionOnPath = _directionOnPath;
 
+        _playerShellTransform.rotation = Quaternion.LookRotation(Vector3.forward, new Vector3(-_directionOnPath.y, _directionOnPath.x));
+
         _camera.GetComponent<CamFollowPath>().InitCam(new Vector3(_lastPosition.x, _lastPosition.y, 0));
     }
 
