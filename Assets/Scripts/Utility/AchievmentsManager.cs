@@ -45,21 +45,21 @@ public class AchievementsManager : MonoBehaviour
                 if (pScore > 3000) TryAchievement(11, pNoNotif);
                 else if (pScore > 2000) TryAchievement(6, pNoNotif);
 
-                if (pScore >= _birdList.First((_) => _.Id == "Bird2").ScoreToBeAccessible)
+                if (pScore >= _birdList.First((_) => _.Id == "Bird3").ScoreToBeAccessible)
                     TryAchievement(1, pNoNotif);
                 break;
             case "Bird3":
                 if (pScore > 3000) TryAchievement(12, pNoNotif);
                 else if (pScore > 2000) TryAchievement(7, pNoNotif);
 
-                if (pScore >= _birdList.First((_) => _.Id == "Bird2").ScoreToBeAccessible)
+                if (pScore >= _birdList.First((_) => _.Id == "Bird4").ScoreToBeAccessible)
                     TryAchievement(2, pNoNotif);
                 break;
             case "Bird4":
                 if (pScore > 3000) TryAchievement(13, pNoNotif);
                 else if (pScore > 2000) TryAchievement(8, pNoNotif);
 
-                if (pScore >= _birdList.First((_) => _.Id == "Bird2").ScoreToBeAccessible)
+                if (pScore >= _birdList.First((_) => _.Id == "Bird5").ScoreToBeAccessible)
                     TryAchievement(3, pNoNotif);
                 break;
             case "Bird5":

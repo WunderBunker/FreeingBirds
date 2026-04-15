@@ -135,7 +135,7 @@ public static class SaveManager
                 yield return null;
                 if (_cancelLoading)
                     break;
-                if (vTimer >= _maxLoadingTime)
+                if (vTimer >= _maxLoadingTime * 3)
                 {
                     Debug.Log("Leaderboard loading time out");
                     CancelLoading();
@@ -327,6 +327,7 @@ public static class SaveManager
     {
         Action<bool, string> aLoad = (bool pIsAuth, string pMsg) =>
         {
+            Debug.Log("Start LB Load : " + Time.time);
             // PlayGamesPlatform.Instance.ShowLeaderboardUI(GPGSIds.leaderboard_bird1);
 
             if (!pIsAuth)
@@ -334,23 +335,23 @@ public static class SaveManager
             if (_cancelLoading)
                 return;
 
-            Action<IScore[]> aCB = (pScores) =>
+            Action<LeaderboardScoreData> aCB = (pScores) =>
             {
                 List<string> lUserIds = new();
-                foreach (IScore lScore in pScores) lUserIds.Add(lScore.userID);
+                foreach (IScore lScore in pScores.Scores) lUserIds.Add(lScore.userID);
                 string[] lUserIdsArray = lUserIds.ToArray();
-
                 PlayGamesPlatform.Instance.LoadUsers(
                     lUserIdsArray,
                     (IUserProfile[] pUsers) =>
                     {
                         LeaderBoard vLeaderBoard = new() { Scores = new() };
-                        foreach (IScore lScore in pScores)
+                        foreach (IScore lScore in pScores.Scores)
                         {
                             IUserProfile lUser = Array.Find(pUsers, item => item.id == lScore.userID);
                             vLeaderBoard.Scores.Add(lUser.userName, lScore.value);
                         }
                         _currentLeaderBoard = vLeaderBoard;
+                        Debug.Log("End LB Load : " + Time.time);
                     }
                 );
             };
@@ -358,7 +359,13 @@ public static class SaveManager
             string vLBId;
             float vHighScore;
             GetCurrentBoardInfo(out vLBId, out vHighScore);
-            PlayGamesPlatform.Instance.LoadScores(vLBId, aCB);
+
+            PlayGamesPlatform.Instance.LoadScores(
+                vLBId,
+                LeaderboardStart.PlayerCentered,
+                25,
+                LeaderboardCollection.Public,
+                LeaderboardTimeSpan.AllTime, aCB);
         };
 
         if (!PlayGamesPlatform.Instance.IsAuthenticated())
